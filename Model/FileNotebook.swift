@@ -1,4 +1,6 @@
-import UIKit
+import UIKit.UIColor
+import CocoaLumberjack
+
 
 class FileNotebook {
     
@@ -15,20 +17,22 @@ class FileNotebook {
     public func add(_ note: Note) throws {
         guard notes[note.uid] != nil else {
             notes[note.uid] = note
+            DDLogInfo("Note with id \(note.uid) is added.")
             return
         }
+        DDLogError("Note with id \(note.uid) could not be added, note with this uuid already exists")
         throw FileNotebookError.existingUid
-        
     }
     
     public func remove(with uid: String) {
         notes.removeValue(forKey: uid)
+        DDLogInfo("Note with \(uid) was removed.")
     }
     
     public func saveToFile() {
         let notesArr = notes.map { $0.value.json }
         guard let usePath = FileNotebook.path else {
-            NSLog("Error")
+            DDLogError("Error in file path initializing.")
             return
         }
         do {
@@ -36,13 +40,14 @@ class FileNotebook {
             let strPath = usePath.appendingPathComponent(FileNotebook.fileName)
             fileManager.createFile(atPath: strPath.path, contents: jsonData)
         } catch {
-            NSLog("Error")
+            DDLogError("Error: \(error.localizedDescription).")
         }
+        DDLogInfo("Notes are saved to file.")
     }
     
     public func loadFromFile() {
         guard let usePath = FileNotebook.path else {
-            NSLog("Error")
+            DDLogError("Error in file path initializing.")
             return
         }
         do {
@@ -59,9 +64,9 @@ class FileNotebook {
                 }
             }
         } catch {
-            NSLog("Error")
+            DDLogError("Error: \(error.localizedDescription).")
         }
-            
+        DDLogInfo("Notes are loaded from file.")
     }
 
 }
