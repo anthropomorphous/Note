@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,6 +11,9 @@
 		9DF9A21E4B5E0C546174EF58 /* libPods-NoteTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B3C2BD2E87373EDADD303A6 /* libPods-NoteTests.a */; };
 		F536D1D423DDB743002E90E5 /* FileNotebook.swift in Sources */ = {isa = PBXBuildFile; fileRef = F536D1D323DDB743002E90E5 /* FileNotebook.swift */; };
 		F53EFAC223EA1759003FE80A /* NoteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F53EFAC123EA1759003FE80A /* NoteTests.swift */; };
+		F53EFACF23ED7B3A003FE80A /* ColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F53EFACE23ED7B3A003FE80A /* ColorViewController.swift */; };
+		F53EFAD323EF3739003FE80A /* AntonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F53EFAD123EF3739003FE80A /* AntonViewController.swift */; };
+		F53EFAD423EF3739003FE80A /* AntonViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F53EFAD223EF3739003FE80A /* AntonViewController.xib */; };
 		F5B51F1023D84456002C0C8F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B51F0F23D84456002C0C8F /* AppDelegate.swift */; };
 		F5B51F1223D84456002C0C8F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B51F1123D84456002C0C8F /* SceneDelegate.swift */; };
 		F5B51F1423D84456002C0C8F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B51F1323D84456002C0C8F /* ViewController.swift */; };
@@ -43,6 +46,9 @@
 		F53EFABF23EA1759003FE80A /* NoteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NoteTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F53EFAC123EA1759003FE80A /* NoteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteTests.swift; sourceTree = "<group>"; };
 		F53EFAC323EA1759003FE80A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F53EFACE23ED7B3A003FE80A /* ColorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorViewController.swift; sourceTree = "<group>"; };
+		F53EFAD123EF3739003FE80A /* AntonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AntonViewController.swift; sourceTree = "<group>"; };
+		F53EFAD223EF3739003FE80A /* AntonViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AntonViewController.xib; sourceTree = "<group>"; };
 		F5B51F0C23D84455002C0C8F /* Note.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Note.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5B51F0F23D84456002C0C8F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F5B51F1123D84456002C0C8F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -107,10 +113,19 @@
 			path = NoteTests;
 			sourceTree = "<group>";
 		};
+		F53EFAD023ED7C40003FE80A /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				F53EFACE23ED7B3A003FE80A /* ColorViewController.swift */,
+				F53EFAD123EF3739003FE80A /* AntonViewController.swift */,
+				F53EFAD223EF3739003FE80A /* AntonViewController.xib */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
 		F5B51F0323D84455002C0C8F = {
 			isa = PBXGroup;
 			children = (
-				F5D9C16723E0D136003B31E6 /* Model */,
 				F5B51F0E23D84455002C0C8F /* Note */,
 				F53EFAC023EA1759003FE80A /* NoteTests */,
 				F5B51F0D23D84455002C0C8F /* Products */,
@@ -131,6 +146,8 @@
 		F5B51F0E23D84455002C0C8F /* Note */ = {
 			isa = PBXGroup;
 			children = (
+				F53EFAD023ED7C40003FE80A /* View Controllers */,
+				F5D9C16723E0D136003B31E6 /* Model */,
 				F5B51F0F23D84456002C0C8F /* AppDelegate.swift */,
 				F5B51F1123D84456002C0C8F /* SceneDelegate.swift */,
 				F5B51F1323D84456002C0C8F /* ViewController.swift */,
@@ -242,6 +259,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F53EFAD423EF3739003FE80A /* AntonViewController.xib in Resources */,
 				F5B51F1C23D84458002C0C8F /* LaunchScreen.storyboard in Resources */,
 				F5B51F1923D84458002C0C8F /* Assets.xcassets in Resources */,
 				F5B51F1723D84456002C0C8F /* Main.storyboard in Resources */,
@@ -313,7 +331,9 @@
 				F536D1D423DDB743002E90E5 /* FileNotebook.swift in Sources */,
 				F5B51F2623DB8E6C002C0C8F /* NoteExtension.swift in Sources */,
 				F5B51F1423D84456002C0C8F /* ViewController.swift in Sources */,
+				F53EFAD323EF3739003FE80A /* AntonViewController.swift in Sources */,
 				F5B51F1023D84456002C0C8F /* AppDelegate.swift in Sources */,
+				F53EFACF23ED7B3A003FE80A /* ColorViewController.swift in Sources */,
 				F5B51F1223D84456002C0C8F /* SceneDelegate.swift in Sources */,
 				F5B51F2423D84631002C0C8F /* Note.swift in Sources */,
 			);
