@@ -15,9 +15,9 @@
 		F55DAB2623F36AB40069DF37 /* ColorPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55DAB2523F36AB40069DF37 /* ColorPickerView.swift */; };
 		F55DAB2A23F36AF90069DF37 /* PointerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55DAB2923F36AF90069DF37 /* PointerView.swift */; };
 		F55DAB2C23F36B1F0069DF37 /* ColorFlagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55DAB2B23F36B1F0069DF37 /* ColorFlagView.swift */; };
-		F55DAB3123F36B750069DF37 /* ColorPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55DAB2F23F36B750069DF37 /* ColorPickerViewController.swift */; };
-		F55DAB3223F36B750069DF37 /* ColorPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F55DAB3023F36B750069DF37 /* ColorPickerViewController.xib */; };
-		F55DAB3423F370140069DF37 /* ColorPickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F55DAB3323F370140069DF37 /* ColorPickerView.xib */; };
+		F55DAB3223F36B750069DF37 /* ColorPickerMainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F55DAB3023F36B750069DF37 /* ColorPickerMainView.xib */; };
+		F55DAB3623F46CBC0069DF37 /* ColorPickerMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55DAB3523F46CBC0069DF37 /* ColorPickerMainView.swift */; };
+		F55DAB3823F5A1870069DF37 /* ColorPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55DAB3723F5A1870069DF37 /* ColorPickerViewController.swift */; };
 		F5B51F1023D84456002C0C8F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B51F0F23D84456002C0C8F /* AppDelegate.swift */; };
 		F5B51F1223D84456002C0C8F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B51F1123D84456002C0C8F /* SceneDelegate.swift */; };
 		F5B51F1423D84456002C0C8F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B51F1323D84456002C0C8F /* ViewController.swift */; };
@@ -54,9 +54,9 @@
 		F55DAB2523F36AB40069DF37 /* ColorPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerView.swift; sourceTree = "<group>"; };
 		F55DAB2923F36AF90069DF37 /* PointerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointerView.swift; sourceTree = "<group>"; };
 		F55DAB2B23F36B1F0069DF37 /* ColorFlagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorFlagView.swift; sourceTree = "<group>"; };
-		F55DAB2F23F36B750069DF37 /* ColorPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerViewController.swift; sourceTree = "<group>"; };
-		F55DAB3023F36B750069DF37 /* ColorPickerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ColorPickerViewController.xib; sourceTree = "<group>"; };
-		F55DAB3323F370140069DF37 /* ColorPickerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ColorPickerView.xib; sourceTree = "<group>"; };
+		F55DAB3023F36B750069DF37 /* ColorPickerMainView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ColorPickerMainView.xib; sourceTree = "<group>"; };
+		F55DAB3523F46CBC0069DF37 /* ColorPickerMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerMainView.swift; sourceTree = "<group>"; };
+		F55DAB3723F5A1870069DF37 /* ColorPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerViewController.swift; sourceTree = "<group>"; };
 		F5B51F0C23D84455002C0C8F /* Note.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Note.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5B51F0F23D84456002C0C8F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F5B51F1123D84456002C0C8F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -126,9 +126,9 @@
 			children = (
 				F55DAB2523F36AB40069DF37 /* ColorPickerView.swift */,
 				F55DAB2923F36AF90069DF37 /* PointerView.swift */,
-				F55DAB2F23F36B750069DF37 /* ColorPickerViewController.swift */,
-				F55DAB3023F36B750069DF37 /* ColorPickerViewController.xib */,
-				F55DAB3323F370140069DF37 /* ColorPickerView.xib */,
+				F55DAB3023F36B750069DF37 /* ColorPickerMainView.xib */,
+				F55DAB3523F46CBC0069DF37 /* ColorPickerMainView.swift */,
+				F55DAB3723F5A1870069DF37 /* ColorPickerViewController.swift */,
 			);
 			path = ColorPicker;
 			sourceTree = "<group>";
@@ -281,8 +281,7 @@
 			files = (
 				F5B51F1C23D84458002C0C8F /* LaunchScreen.storyboard in Resources */,
 				F5B51F1923D84458002C0C8F /* Assets.xcassets in Resources */,
-				F55DAB3223F36B750069DF37 /* ColorPickerViewController.xib in Resources */,
-				F55DAB3423F370140069DF37 /* ColorPickerView.xib in Resources */,
+				F55DAB3223F36B750069DF37 /* ColorPickerMainView.xib in Resources */,
 				F5B51F1723D84456002C0C8F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -350,14 +349,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				F536D1D423DDB743002E90E5 /* FileNotebook.swift in Sources */,
-				F55DAB3123F36B750069DF37 /* ColorPickerViewController.swift in Sources */,
 				F55DAB2C23F36B1F0069DF37 /* ColorFlagView.swift in Sources */,
+				F55DAB3823F5A1870069DF37 /* ColorPickerViewController.swift in Sources */,
 				F5B51F2623DB8E6C002C0C8F /* NoteExtension.swift in Sources */,
 				F5B51F1423D84456002C0C8F /* ViewController.swift in Sources */,
 				F5B51F1023D84456002C0C8F /* AppDelegate.swift in Sources */,
 				F55DAB2423F36A1C0069DF37 /* NoteEditViewController.swift in Sources */,
 				F5B51F1223D84456002C0C8F /* SceneDelegate.swift in Sources */,
 				F55DAB2623F36AB40069DF37 /* ColorPickerView.swift in Sources */,
+				F55DAB3623F46CBC0069DF37 /* ColorPickerMainView.swift in Sources */,
 				F55DAB2A23F36AF90069DF37 /* PointerView.swift in Sources */,
 				F5B51F2423D84631002C0C8F /* Note.swift in Sources */,
 			);

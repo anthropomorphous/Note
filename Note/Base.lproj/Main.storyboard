@@ -15,28 +15,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RGP-aT-Sgz">
-                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <items>
-                                    <navigationItem title="Notes" id="IlF-0w-fui"/>
-                                </items>
-                            </navigationBar>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qhW-1Z-WL5">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qhW-1Z-WL5">
                                 <rect key="frame" x="94" y="683" width="227" height="65"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="Note Edit">
                                     <color key="titleColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="noteEdit:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bQ2-r3-ROD"/>
                                     <segue destination="Iuy-HQ-ryG" kind="show" identifier="NoteEditorSegue" id="l6u-y1-tkH"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="8xr-Ny-NcZ" firstAttribute="trailing" secondItem="qhW-1Z-WL5" secondAttribute="trailing" constant="93" id="4gE-jr-2vb"/>
+                            <constraint firstItem="8xr-Ny-NcZ" firstAttribute="bottom" secondItem="qhW-1Z-WL5" secondAttribute="bottom" constant="114" id="A5r-7F-Ujj"/>
+                            <constraint firstItem="qhW-1Z-WL5" firstAttribute="leading" secondItem="8xr-Ny-NcZ" secondAttribute="leading" constant="94" id="IIY-u2-EOy"/>
+                            <constraint firstItem="qhW-1Z-WL5" firstAttribute="top" secondItem="8xr-Ny-NcZ" secondAttribute="top" constant="639" id="uA5-VQ-Ghl"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="8xr-Ny-NcZ"/>
                     </view>
                 </viewController>
@@ -132,11 +129,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="5XF-Rg-WyG"/>
                     <connections>
-                        <outlet property="gradientFieldView" destination="818-Ph-CeF" id="vFm-69-XAH"/>
+                        <outlet property="gradientFieldView" destination="818-Ph-CeF" id="Hit-uR-EUq"/>
                         <outlet property="greenFieldView" destination="Ekc-LO-cmJ" id="1VC-dB-Lzb"/>
                         <outlet property="redFieldView" destination="b8k-6G-gdp" id="zcn-uf-hnx"/>
                         <outlet property="whiteFieldView" destination="Jfk-Of-Dfb" id="ICC-Ub-E19"/>
-                        <segue destination="iAp-Uk-peg" kind="show" identifier="ColorPickerSegue" id="YEe-Bl-Qxi"/>
+                        <segue destination="5Wt-pE-TEn" kind="show" identifier="OpenPickerView" id="Mb4-JQ-Ooz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dFE-Pf-OhZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -154,20 +151,29 @@
             <point key="canvasLocation" x="128.98550724637681" y="-573.21428571428567"/>
         </scene>
         <!--Color Picker View Controller-->
-        <scene sceneID="mkX-no-yHE">
+        <scene sceneID="s0d-40-gNU">
             <objects>
-                <viewController id="iAp-Uk-peg" customClass="ColorPickerViewController" customModule="Note" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="v70-4Z-NTa" customClass="ColorPickerView" customModule="Note" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                <viewController id="5Wt-pE-TEn" customClass="ColorPickerViewController" customModule="Note" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="clP-QA-b9n">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="O8R-Z9-mxK" customClass="ColorPickerMainView" customModule="Note" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="oq0-kl-V2Q"/>
+                        <viewLayoutGuide key="safeArea" id="pYB-Gv-etw"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Hea-vF-wSE"/>
+                    <connections>
+                        <outlet property="colorPickerMainView" destination="O8R-Z9-mxK" id="hgT-67-iqd"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Jj4-mE-ajc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="62b-98-gNX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1223" y="-573"/>
+            <point key="canvasLocation" x="1091.304347826087" y="-573.21428571428567"/>
         </scene>
     </scenes>
     <resources>

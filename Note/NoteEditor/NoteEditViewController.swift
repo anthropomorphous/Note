@@ -14,23 +14,26 @@ class NoteEditViewController: UIViewController {
          present(colorPickerViewController, animated: true, completion: nil)
      }
     
+    
     @IBAction func gradientFieldLongPressed(_ sender: UILongPressGestureRecognizer) {
         if sender.state == .began {
             performSegue(withIdentifier: "OpenColorPicker", sender: nil)
         }
     }
     
+    func setup(fieldName: UIView) {
+        fieldName.layer.borderWidth = 1
+        fieldName.layer.borderColor = UIColor.black.cgColor
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        whiteFieldView.layer.borderWidth = 1
-//        whiteFieldView.layer.borderColor = UIColor.black.cgColor
+        setup(fieldName: whiteFieldView)
+        setup(fieldName: redFieldView)
+        setup(fieldName: greenFieldView)
+        setup(fieldName: gradientFieldView)
         
-       //setup(fieldView: whiteFieldView)
-       // setup(fieldView: redFieldView)
-       // setup(fieldView: greenFieldView)
-       //setup(fieldView: gradientFieldView)
-
     }
     
 

@@ -7,14 +7,14 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ColorPickerViewController" customModule="Note" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ColorPickerMainView" customModule="Note" customModuleProvider="target">
             <connections>
-                <outlet property="colorCode" destination="qPX-hj-5AQ" id="AHP-0Q-swt"/>
-                <outlet property="colorContainer" destination="XXK-N5-Q7S" id="3aM-KS-hbr"/>
-                <outlet property="gradientView" destination="yMu-GK-P2H" id="pKH-RR-D48"/>
-                <outlet property="preview" destination="ZnG-db-URr" id="l4a-2m-PPk"/>
-                <outlet property="slider" destination="cMS-FS-6co" id="mfl-hL-vKi"/>
-                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="colorCode" destination="qPX-hj-5AQ" id="b9f-8p-FE6"/>
+                <outlet property="container" destination="XXK-N5-Q7S" id="OPj-o6-nFy"/>
+                <outlet property="gradientView" destination="yMu-GK-P2H" id="xX8-2H-zDj"/>
+                <outlet property="pointer" destination="25K-kG-Chn" id="muY-Me-Tgr"/>
+                <outlet property="preview" destination="ZnG-db-URr" id="SEf-f5-Bwb"/>
+                <outlet property="slider" destination="cMS-FS-6co" id="79B-UG-Dl5"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -33,7 +33,7 @@
                     <rect key="frame" x="163" y="156" width="221" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <connections>
-                        <action selector="brightnessChanged:" destination="-1" eventType="valueChanged" id="IjV-VY-LFr"/>
+                        <action selector="brightnessSlider:" destination="-1" eventType="valueChanged" id="ccB-2T-R04"/>
                     </connections>
                 </slider>
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XXK-N5-Q7S">
@@ -58,19 +58,18 @@
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yMu-GK-P2H" customClass="ColorPickerView" customModule="Note" customModuleProvider="target">
                     <rect key="frame" x="33" y="220" width="349" height="506"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="25K-kG-Chn" customClass="PointerView" customModule="Note" customModuleProvider="target">
+                            <rect key="frame" x="28" y="28" width="34" height="34"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </view>
+                    </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UQj-BX-V47">
-                    <rect key="frame" x="129" y="747" width="157" height="52"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="27"/>
-                    <state key="normal" title="Done"/>
-                    <connections>
-                        <action selector="close:" destination="-1" eventType="touchUpInside" id="D5a-Ra-GGn"/>
-                    </connections>
-                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="137.68115942028987" y="113.83928571428571"/>
         </view>

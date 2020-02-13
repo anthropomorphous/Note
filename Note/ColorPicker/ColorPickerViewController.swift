@@ -1,29 +1,27 @@
 import UIKit
 
-class ColorPickerViewController: UIViewController {
 
-    @IBOutlet weak var colorContainer: UIView!
-    @IBOutlet weak var colorCode: UILabel!
-    @IBOutlet weak var preview: UIView!
-    @IBOutlet weak var slider: UISlider!
-    @IBOutlet weak var gradientView: ColorPickerView!
+protocol ColorPickerDelegate : class {
+    func colorPickerColorSelected(color: UIColor)
+}
+
+final class ColorPickerViewController: UIViewController {
+
+    @IBOutlet weak var colorPickerMainView: ColorPickerMainView!
     
-    @IBAction func close(_ sender: UIButton) {
-          dismiss(animated: true, completion: nil)
-    }
-    
-    @IBAction func brightnessChanged(_ sender: UISlider) {
-//           gradientView.brightness = CGFloat(sender.value)
-           
-       }
-    
+    var currentColor = UIColor.white
+    weak var delegate: ColorPickerDelegate?
+       
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        colorContainer.layer.borderWidth = 1
-        colorContainer.layer.borderColor = UIColor.black.cgColor
+           
+        colorPickerMainView.defaultColor = currentColor
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .done, target: self, action: #selector(save))
     }
-    
-    
-
+       
+    @objc func save() {
+        delegate?.colorPickerColorSelected(color: colorPickerMainView.defaultColor)
+        navigationController?.popViewController(animated: true)
+    }
 }
+

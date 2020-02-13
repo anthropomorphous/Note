@@ -10,10 +10,6 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    @IBAction func noteEdit(_ sender: UIButton) {
-        let noteEditViewController = NoteEditViewController()
-        present(noteEditViewController, animated: true, completion: nil)
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
