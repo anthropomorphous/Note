@@ -15,7 +15,6 @@
 		F55DAB2623F36AB40069DF37 /* ColorPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55DAB2523F36AB40069DF37 /* ColorPickerView.swift */; };
 		F55DAB2A23F36AF90069DF37 /* PointerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55DAB2923F36AF90069DF37 /* PointerView.swift */; };
 		F55DAB2C23F36B1F0069DF37 /* ColorFlagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55DAB2B23F36B1F0069DF37 /* ColorFlagView.swift */; };
-		F55DAB3223F36B750069DF37 /* ColorPickerMainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F55DAB3023F36B750069DF37 /* ColorPickerMainView.xib */; };
 		F55DAB3623F46CBC0069DF37 /* ColorPickerMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55DAB3523F46CBC0069DF37 /* ColorPickerMainView.swift */; };
 		F55DAB3823F5A1870069DF37 /* ColorPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55DAB3723F5A1870069DF37 /* ColorPickerViewController.swift */; };
 		F5B51F1023D84456002C0C8F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B51F0F23D84456002C0C8F /* AppDelegate.swift */; };
@@ -26,6 +25,7 @@
 		F5B51F1C23D84458002C0C8F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5B51F1A23D84458002C0C8F /* LaunchScreen.storyboard */; };
 		F5B51F2423D84631002C0C8F /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B51F2323D84631002C0C8F /* Note.swift */; };
 		F5B51F2623DB8E6C002C0C8F /* NoteExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B51F2523DB8E6C002C0C8F /* NoteExtension.swift */; };
+		F5F6F5C923F74BA700974AC7 /* ColorPickerMainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5F6F5C823F74BA700974AC7 /* ColorPickerMainView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,7 +54,6 @@
 		F55DAB2523F36AB40069DF37 /* ColorPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerView.swift; sourceTree = "<group>"; };
 		F55DAB2923F36AF90069DF37 /* PointerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointerView.swift; sourceTree = "<group>"; };
 		F55DAB2B23F36B1F0069DF37 /* ColorFlagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorFlagView.swift; sourceTree = "<group>"; };
-		F55DAB3023F36B750069DF37 /* ColorPickerMainView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ColorPickerMainView.xib; sourceTree = "<group>"; };
 		F55DAB3523F46CBC0069DF37 /* ColorPickerMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerMainView.swift; sourceTree = "<group>"; };
 		F55DAB3723F5A1870069DF37 /* ColorPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerViewController.swift; sourceTree = "<group>"; };
 		F5B51F0C23D84455002C0C8F /* Note.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Note.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -67,6 +66,7 @@
 		F5B51F1D23D84458002C0C8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F5B51F2323D84631002C0C8F /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		F5B51F2523DB8E6C002C0C8F /* NoteExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteExtension.swift; sourceTree = "<group>"; };
+		F5F6F5C823F74BA700974AC7 /* ColorPickerMainView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ColorPickerMainView.xib; sourceTree = "<group>"; };
 		FAB9B385754120066FDA8079 /* Pods-Note.qa.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Note.qa.xcconfig"; path = "Target Support Files/Pods-Note/Pods-Note.qa.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -126,9 +126,9 @@
 			children = (
 				F55DAB2523F36AB40069DF37 /* ColorPickerView.swift */,
 				F55DAB2923F36AF90069DF37 /* PointerView.swift */,
-				F55DAB3023F36B750069DF37 /* ColorPickerMainView.xib */,
 				F55DAB3523F46CBC0069DF37 /* ColorPickerMainView.swift */,
 				F55DAB3723F5A1870069DF37 /* ColorPickerViewController.swift */,
+				F5F6F5C823F74BA700974AC7 /* ColorPickerMainView.xib */,
 			);
 			path = ColorPicker;
 			sourceTree = "<group>";
@@ -280,8 +280,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				F5B51F1C23D84458002C0C8F /* LaunchScreen.storyboard in Resources */,
+				F5F6F5C923F74BA700974AC7 /* ColorPickerMainView.xib in Resources */,
 				F5B51F1923D84458002C0C8F /* Assets.xcassets in Resources */,
-				F55DAB3223F36B750069DF37 /* ColorPickerMainView.xib in Resources */,
 				F5B51F1723D84456002C0C8F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

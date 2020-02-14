@@ -1,6 +1,7 @@
 import UIKit
 
 class NoteEditViewController: UIViewController {
+    
 
     @IBOutlet weak var whiteFieldView: UIView!
     @IBOutlet weak var redFieldView: UIView!
@@ -20,6 +21,7 @@ class NoteEditViewController: UIViewController {
             performSegue(withIdentifier: "OpenColorPicker", sender: nil)
         }
     }
+    
     
     func setup(fieldName: UIView) {
         fieldName.layer.borderWidth = 1

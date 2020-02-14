@@ -103,7 +103,18 @@
                                                 <rect key="frame" x="299" y="472" width="80" height="80"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <gestureRecognizers/>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="eTI-wF-PlT" appends="YES" id="oVk-VN-5Up"/>
+                                                </connections>
                                             </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oof-md-ahO">
+                                                <rect key="frame" x="299" y="665" width="46" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="Button"/>
+                                                <connections>
+                                                    <segue destination="5Wt-pE-TEn" kind="show" id="AaN-sN-c3n"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                     </view>
@@ -139,14 +150,10 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dFE-Pf-OhZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="064-N8-EPL">
                     <connections>
-                        <action selector="gradientTapGestureRecognizer:" destination="Iuy-HQ-ryG" id="sOI-aB-1Z7"/>
+                        <action selector="gradientTapGestureRecognizer:" destination="Iuy-HQ-ryG" id="2KY-Yk-cxc"/>
                     </connections>
                 </tapGestureRecognizer>
-                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="eTI-wF-PlT">
-                    <connections>
-                        <action selector="gradientFieldLongPressed:" destination="Iuy-HQ-ryG" id="zjI-cF-eAU"/>
-                    </connections>
-                </pongPressGestureRecognizer>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="eTI-wF-PlT"/>
             </objects>
             <point key="canvasLocation" x="128.98550724637681" y="-573.21428571428567"/>
         </scene>
@@ -154,22 +161,13 @@
         <scene sceneID="s0d-40-gNU">
             <objects>
                 <viewController id="5Wt-pE-TEn" customClass="ColorPickerViewController" customModule="Note" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="clP-QA-b9n">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                    <view key="view" contentMode="scaleToFill" id="clP-QA-b9n" customClass="ColorPickerMainView" customModule="Note" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="O8R-Z9-mxK" customClass="ColorPickerMainView" customModule="Note" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                            </view>
-                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="pYB-Gv-etw"/>
                     </view>
-                    <connections>
-                        <outlet property="colorPickerMainView" destination="O8R-Z9-mxK" id="hgT-67-iqd"/>
-                    </connections>
+                    <navigationItem key="navigationItem" id="bBU-st-YPm"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="62b-98-gNX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -179,4 +177,7 @@
     <resources>
         <image name="Gradient" width="256" height="256"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="AaN-sN-c3n"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -7,7 +7,7 @@ protocol ColorPickerDelegate : class {
 
 final class ColorPickerViewController: UIViewController {
 
-    @IBOutlet weak var colorPickerMainView: ColorPickerMainView!
+//    @IBOutlet weak var colorPickerMainView: ColorPickerMainView!
     
     var currentColor = UIColor.white
     weak var delegate: ColorPickerDelegate?
@@ -15,12 +15,12 @@ final class ColorPickerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
            
-        colorPickerMainView.defaultColor = currentColor
+//        colorPickerMainView.defaultColor = currentColor
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .done, target: self, action: #selector(save))
     }
        
     @objc func save() {
-        delegate?.colorPickerColorSelected(color: colorPickerMainView.defaultColor)
+//        delegate?.colorPickerColorSelected(color: colorPickerMainView.defaultColor)
         navigationController?.popViewController(animated: true)
     }
 }
