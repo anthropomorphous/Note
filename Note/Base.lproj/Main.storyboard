@@ -107,14 +107,6 @@
                                                     <outletCollection property="gestureRecognizers" destination="eTI-wF-PlT" appends="YES" id="oVk-VN-5Up"/>
                                                 </connections>
                                             </imageView>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oof-md-ahO">
-                                                <rect key="frame" x="299" y="665" width="46" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Button"/>
-                                                <connections>
-                                                    <segue destination="5Wt-pE-TEn" kind="show" id="AaN-sN-c3n"/>
-                                                </connections>
-                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                     </view>
@@ -144,7 +136,7 @@
                         <outlet property="greenFieldView" destination="Ekc-LO-cmJ" id="1VC-dB-Lzb"/>
                         <outlet property="redFieldView" destination="b8k-6G-gdp" id="zcn-uf-hnx"/>
                         <outlet property="whiteFieldView" destination="Jfk-Of-Dfb" id="ICC-Ub-E19"/>
-                        <segue destination="5Wt-pE-TEn" kind="show" identifier="OpenPickerView" id="Mb4-JQ-Ooz"/>
+                        <segue destination="5Wt-pE-TEn" kind="show" identifier="OpenColorPicker" destinationCreationSelector="OpenColorPicker:" id="tw2-Hd-2yY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dFE-Pf-OhZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -153,7 +145,11 @@
                         <action selector="gradientTapGestureRecognizer:" destination="Iuy-HQ-ryG" id="2KY-Yk-cxc"/>
                     </connections>
                 </tapGestureRecognizer>
-                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="eTI-wF-PlT"/>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="eTI-wF-PlT">
+                    <connections>
+                        <action selector="gradientFieldLongPressed:" destination="Iuy-HQ-ryG" id="Typ-yM-4Vg"/>
+                    </connections>
+                </pongPressGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="128.98550724637681" y="-573.21428571428567"/>
         </scene>
@@ -177,7 +173,4 @@
     <resources>
         <image name="Gradient" width="256" height="256"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="AaN-sN-c3n"/>
-    </inferredMetricsTieBreakers>
 </document>

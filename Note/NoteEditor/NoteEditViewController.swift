@@ -2,13 +2,12 @@ import UIKit
 
 class NoteEditViewController: UIViewController {
     
-
     @IBOutlet weak var whiteFieldView: UIView!
     @IBOutlet weak var redFieldView: UIView!
     @IBOutlet weak var greenFieldView: UIView!
     @IBOutlet weak var gradientFieldView: UIImageView!
     
-    
+
     @IBAction func gradientTapGestureRecognizer( _ sender: Any) {
          gradientFieldView.isUserInteractionEnabled = true
          let colorPickerViewController = ColorPickerViewController()
