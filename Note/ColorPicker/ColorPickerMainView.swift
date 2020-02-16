@@ -3,7 +3,7 @@ import UIKit
 @IBDesignable
 final class ColorPickerMainView: UIView {
 
-    var defaultColor: UIColor = UIColor.green
+    var defaultColor: UIColor = UIColor.white
 
     @IBOutlet weak var container: UIView!
 
@@ -33,6 +33,7 @@ final class ColorPickerMainView: UIView {
         super.draw(rect)
         pointer.center = gradientView.getPointForColor(color: defaultColor)
         preview.backgroundColor = defaultColor
+        
     }
 
     private func setup(_ view: UIView) {
@@ -58,14 +59,26 @@ final class ColorPickerMainView: UIView {
         return nib.instantiate(withOwner: self, options: nil).first! as! UIView
     }
 
-//    private func updateColor(_ location: CGPoint) {
-//        let x = min(max(0, location.x), gradientView.frame.width)
-//        let y = min(max(0, location.y), gradientView.frame.height)
-//        let rightLocation = CGPoint(x: x, y: y)
-//        defaultColor = gradientView.getColorAtPoint(point: rightLocation)
-//        preview.backgroundColor = defaultColor
-//        pointer.center = rightLocation
-//        pointer.fillColor = defaultColor
-//    }
+    private func update(_ location: CGPoint) {
+        let x = min(max(0, location.x), gradientView.frame.width)
+        let y = min(max(0, location.y), gradientView.frame.height)
+        let rightLocation = CGPoint(x: x, y: y)
+        defaultColor = gradientView.getColorAtPoint(point: rightLocation)
+        preview.backgroundColor = defaultColor
+        pointer.center = rightLocation
+        pointer.fillColor = defaultColor
+        
+        colorCode.text = defaultColor.htmlRGBaColor
+    }
+    
+    @IBAction func handlePanGesture(_ sender: UIPanGestureRecognizer) {
+        let location = sender.location(in: gradientView)
+        update(location)
+    }
+    
+    @IBAction func handleTapGesture(_ sender: UITapGestureRecognizer) {
+        let location = sender.location(in: gradientView)
+        update(location)
+    }
     
 }

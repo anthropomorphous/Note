@@ -46,6 +46,11 @@
                         </view>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <gestureRecognizers/>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="xlq-sh-juB" appends="YES" id="Ful-2m-MXz"/>
+                        <outletCollection property="gestureRecognizers" destination="zws-xo-CcS" appends="YES" id="edo-vU-V06"/>
+                    </connections>
                 </view>
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="G2E-00-0Eo">
                     <rect key="frame" x="24" y="73" width="125" height="128"/>
@@ -56,7 +61,7 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         </view>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="#FFFFFFFF" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YlA-XL-qfg">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="#ffffffff" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YlA-XL-qfg">
                             <rect key="frame" x="0.0" y="99" width="125" height="29"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="19"/>
@@ -71,5 +76,15 @@
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <point key="canvasLocation" x="347.82608695652175" y="269.19642857142856"/>
         </view>
+        <tapGestureRecognizer id="xlq-sh-juB">
+            <connections>
+                <action selector="handleTapGesture:" destination="-1" id="dNz-AA-PCB"/>
+            </connections>
+        </tapGestureRecognizer>
+        <panGestureRecognizer minimumNumberOfTouches="1" id="zws-xo-CcS">
+            <connections>
+                <action selector="handlePanGesture:" destination="-1" id="4zu-17-hDZ"/>
+            </connections>
+        </panGestureRecognizer>
     </objects>
 </document>

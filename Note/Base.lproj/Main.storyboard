@@ -119,16 +119,17 @@
                                                     <outletCollection property="gestureRecognizers" destination="jcx-FY-fTA" appends="YES" id="wJQ-gk-ydy"/>
                                                 </connections>
                                             </view>
-                                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Gradient" translatesAutoresizingMaskIntoConstraints="NO" id="818-Ph-CeF">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Igm-kA-qjc">
                                                 <rect key="frame" x="294" y="0.0" width="80" height="80"/>
-                                                <gestureRecognizers/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" secondItem="818-Ph-CeF" secondAttribute="height" multiplier="1:1" id="c5N-KG-z3d"/>
+                                                    <constraint firstAttribute="width" secondItem="Igm-kA-qjc" secondAttribute="height" multiplier="1:1" id="pQn-qQ-mjW"/>
                                                 </constraints>
                                                 <connections>
-                                                    <outletCollection property="gestureRecognizers" destination="eTI-wF-PlT" appends="YES" id="oVk-VN-5Up"/>
+                                                    <outletCollection property="gestureRecognizers" destination="eTI-wF-PlT" appends="YES" id="0Qf-LQ-TJR"/>
+                                                    <outletCollection property="gestureRecognizers" destination="064-N8-EPL" appends="YES" id="nVA-rf-J8p"/>
                                                 </connections>
-                                            </imageView>
+                                            </view>
                                         </subviews>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="80" id="6Qm-dU-LX2"/>
@@ -139,6 +140,7 @@
                                         <rect key="frame" x="20" y="80" width="374" height="30.5"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
+                                            <constraint firstAttribute="width" constant="374" id="00y-cz-RIG"/>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="akI-mb-QB4"/>
                                         </constraints>
                                         <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -187,7 +189,7 @@
                         <outlet property="contentField" destination="tbp-g0-PYj" id="dXX-AI-Hg8"/>
                         <outlet property="datePicker" destination="DxO-9d-8Vx" id="aeE-86-Qa8"/>
                         <outlet property="datePickerHeight" destination="hN1-hh-NE7" id="5di-z2-Lk5"/>
-                        <outlet property="gradientFieldView" destination="818-Ph-CeF" id="Hit-uR-EUq"/>
+                        <outlet property="gradientFieldView" destination="Igm-kA-qjc" id="ZtC-FN-nxf"/>
                         <outlet property="greenFieldView" destination="Ekc-LO-cmJ" id="1VC-dB-Lzb"/>
                         <outlet property="redFieldView" destination="b8k-6G-gdp" id="zcn-uf-hnx"/>
                         <outlet property="scrollView" destination="p6w-EP-bA8" id="NFh-3H-Xbw"/>
@@ -247,7 +249,4 @@
             <point key="canvasLocation" x="1091.304347826087" y="-573.21428571428567"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="Gradient" width="256" height="256"/>
-    </resources>
 </document>

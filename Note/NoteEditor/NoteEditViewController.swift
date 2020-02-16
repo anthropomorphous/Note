@@ -1,10 +1,9 @@
 import UIKit
 
-final class NoteEditViewController: UIViewController, UITextFieldDelegate {
+final class NoteEditViewController: UIViewController {
     
     private var flag = ColorFlagView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
     var chosenColor = UIColor.white
-    
 
     @IBOutlet weak var titleField: UITextField!
     
@@ -12,7 +11,7 @@ final class NoteEditViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var whiteFieldView: ColorSquare!
     @IBOutlet weak var redFieldView: ColorSquare!
     @IBOutlet weak var greenFieldView: ColorSquare!
-    @IBOutlet weak var gradientFieldView: GradientSquare!
+    @IBOutlet weak var gradientFieldView: ColorSquare!
     
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var scrollView: UIScrollView!
@@ -56,22 +55,15 @@ final class NoteEditViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    
-    func setup(_ fieldName: UIView) {
-        fieldName.layer.borderWidth = 1
-        fieldName.layer.borderColor = UIColor.black.cgColor
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
 //        titleField.delegate = self
 //        textViewDidChange(contentField)
-        
-        setup(whiteFieldView)
-        setup(redFieldView)
-        setup(greenFieldView)
-        setup(gradientFieldView)
+
+        titleField.delegate = self
+        contentField.delegate = self
+        textViewDidChange(contentField)
         
         flagTo(chosenColor)
         
@@ -90,17 +82,7 @@ final class NoteEditViewController: UIViewController, UITextFieldDelegate {
         default:
             gradientFieldView.addSubview(flag)
             gradientFieldView.backgroundColor = color
-           // gradientFieldView.isColorPallete = false
-        }
-    }
-    
-    func textViewDidChange(_ textView: UITextView) {
-        let size = CGSize(width: view.frame.width, height: .infinity)
-        let estimatedSize = textView.sizeThatFits(size)
-        textView.constraints.forEach { (constraint) in
-            if constraint.firstAttribute == .height {
-                constraint.constant = estimatedSize.height
-            }
+            gradientFieldView.isColorPallete = false
         }
     }
 
@@ -114,4 +96,17 @@ final class NoteEditViewController: UIViewController, UITextFieldDelegate {
         scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     }
 
+}
+
+extension NoteEditViewController: UITextFieldDelegate, UITextViewDelegate {
+    func textViewDidChange(_ textView: UITextView) {
+        let size = CGSize(width: view.frame.width, height: .infinity)
+        let estimatedSize = textView.sizeThatFits(size)
+        
+        textView.constraints.forEach { (constraint) in
+            if constraint.firstAttribute == .height {
+                constraint.constant = estimatedSize.height
+            }
+        }
+    }
 }
