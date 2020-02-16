@@ -9,12 +9,11 @@ final class ColorPickerMainView: UIView {
 
     @IBOutlet weak var preview: UIView!
     @IBOutlet weak var colorCode: UILabel!
-   // @IBOutlet weak var slider: UISlider!
 
     @IBOutlet weak var gradientView: ColorPickerView!
     @IBOutlet weak var pointer: PointerView!
     @IBAction func brightnessSlider(_ sender: UISlider) {}
-//
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViews()
@@ -36,7 +35,7 @@ final class ColorPickerMainView: UIView {
         preview.backgroundColor = defaultColor
     }
 
-    private func setup(view: UIView) {
+    private func setup(_ view: UIView) {
         view.layer.borderWidth = 1
         view.layer.borderColor = UIColor.black.cgColor
         view.layer.cornerRadius = 5
@@ -48,8 +47,8 @@ final class ColorPickerMainView: UIView {
         xibView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         self.addSubview(xibView)
         
-        setup(view: container)
-        setup(view: gradientView)
+        setup(container)
+        setup(gradientView)
 
     }
 
