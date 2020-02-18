@@ -3,7 +3,7 @@ import UIKit
 @IBDesignable
 final class ColorPickerMainView: UIView {
 
-    var defaultColor: UIColor = UIColor.white
+    var currentColor: UIColor = UIColor.white
 
     @IBOutlet weak var container: UIView!
 
@@ -12,7 +12,8 @@ final class ColorPickerMainView: UIView {
 
     @IBOutlet weak var gradientView: ColorPickerView!
     @IBOutlet weak var pointer: PointerView!
-    @IBAction func brightnessSlider(_ sender: UISlider) {}
+    
+    weak var delegate: Colorable?
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -31,8 +32,8 @@ final class ColorPickerMainView: UIView {
 
     override func draw(_ rect: CGRect) {
         super.draw(rect)
-        pointer.center = gradientView.getPointForColor(color: defaultColor)
-        preview.backgroundColor = defaultColor
+        pointer.center = gradientView.getPointForColor(color: currentColor)
+        preview.backgroundColor = currentColor
         
     }
 
@@ -63,12 +64,14 @@ final class ColorPickerMainView: UIView {
         let x = min(max(0, location.x), gradientView.frame.width)
         let y = min(max(0, location.y), gradientView.frame.height)
         let rightLocation = CGPoint(x: x, y: y)
-        defaultColor = gradientView.getColorAtPoint(point: rightLocation)
-        preview.backgroundColor = defaultColor
+        currentColor = gradientView.getColorAtPoint(point: rightLocation)
+        preview.backgroundColor = currentColor
         pointer.center = rightLocation
-        pointer.fillColor = defaultColor
+        pointer.fillColor = currentColor
         
-        colorCode.text = defaultColor.htmlRGBaColor
+        colorCode.text = currentColor.htmlRGBaColor
+        
+        delegate?.passValue(of: currentColor)
     }
     
     @IBAction func handlePanGesture(_ sender: UIPanGestureRecognizer) {

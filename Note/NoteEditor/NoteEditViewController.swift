@@ -1,21 +1,21 @@
 import UIKit
 
-final class NoteEditViewController: UIViewController {
-    
-    private var flag = ColorFlagView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
-    var chosenColor = UIColor.white
-
+final class NoteEditViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate {
+   
     @IBOutlet weak var titleField: UITextField!
     
-    @IBOutlet weak var contentField: UITextView!
     @IBOutlet weak var whiteFieldView: ColorSquare!
     @IBOutlet weak var redFieldView: ColorSquare!
     @IBOutlet weak var greenFieldView: ColorSquare!
     @IBOutlet weak var gradientFieldView: ColorSquare!
     
+    @IBOutlet weak var dateSwitcher: UISwitch!
+    @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var datePickerHeight: NSLayoutConstraint!
+    
+    private var selectedField: ColorSquare!
     
     @IBAction func viewTapped(_ sender: UITapGestureRecognizer) {
         self.view.endEditing(true)
@@ -33,19 +33,20 @@ final class NoteEditViewController: UIViewController {
     }
     
     @IBAction func colorRectWhiteTapped(_ sender: UITapGestureRecognizer) {
-        chosenColor = UIColor.white
+        setColor(whiteFieldView)
     }
     @IBAction func colorRectRedTapped(_ sender: UITapGestureRecognizer) {
-        chosenColor = UIColor.red
+        setColor(redFieldView)
     }
     @IBAction func colorRectGreenTapped(_ sender: UITapGestureRecognizer) {
-        chosenColor = UIColor.green
+        setColor(greenFieldView)
     }
     
     @IBAction func gradientTapGestureRecognizer( _ sender: Any) {
-         gradientFieldView.isUserInteractionEnabled = true
-         let colorPickerViewController = ColorPickerViewController()
-         present(colorPickerViewController, animated: true, completion: nil)
+//      if !gradientFieldView.isColorPallete {
+//             guard let color = gradientFieldView.backgroundColor else { return }
+//             setColor(gradientFieldView)
+//         }
      }
     
     
@@ -55,35 +56,41 @@ final class NoteEditViewController: UIViewController {
         }
     }
     
+    private func setColor(_ view: ColorSquare?) {
+        guard let view = view else {
+            return
+        }
+        
+        selectedField.isSelected = false
+        selectedField.setNeedsDisplay()
+        
+        view.isSelected = true
+        view.setNeedsDisplay()
+        
+        selectedField = view
+    }
+    
+    private func setup(_ field: UIView) {
+        field.layer.borderWidth = 1
+        field.layer.borderColor = UIColor.black.cgColor
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        selectedField = whiteFieldView
         
-//        titleField.delegate = self
-//        textViewDidChange(contentField)
-
-        titleField.delegate = self
-        contentField.delegate = self
-        textViewDidChange(contentField)
-        
-        flagTo(chosenColor)
+        gradientFieldView.backgroundColor = UIColor(
+            patternImage: UIImage(named: "Gradient.jpg")!
+        )
         
         NotificationCenter.default.addObserver(self, selector: #selector(NoteEditViewController.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(NoteEditViewController.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
     }
     
-    func flagTo(_ color: UIColor) {
-        switch color {
-        case UIColor.white:
-            whiteFieldView.addSubview(flag)
-        case UIColor.red:
-            redFieldView.addSubview(flag)
-        case UIColor.green:
-            greenFieldView.addSubview(flag)
-        default:
-            gradientFieldView.addSubview(flag)
-            gradientFieldView.backgroundColor = color
-            gradientFieldView.isColorPallete = false
-        }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        titleField.endEditing(true)
+        return false
     }
 
     @objc func keyboardWillShow(_ notification:Notification) {
@@ -98,15 +105,15 @@ final class NoteEditViewController: UIViewController {
 
 }
 
-extension NoteEditViewController: UITextFieldDelegate, UITextViewDelegate {
-    func textViewDidChange(_ textView: UITextView) {
-        let size = CGSize(width: view.frame.width, height: .infinity)
-        let estimatedSize = textView.sizeThatFits(size)
-        
-        textView.constraints.forEach { (constraint) in
-            if constraint.firstAttribute == .height {
-                constraint.constant = estimatedSize.height
-            }
+extension NoteEditViewController: Colorable {
+    
+    func passValue(of color: UIColor) {
+        if selectedField != gradientFieldView {
+            selectedField.isSelected = false
+            selectedField.setNeedsDisplay()
         }
+        selectedField = gradientFieldView
+        selectedField.isColorPallete = false
+        selectedField.backgroundColor = color
     }
 }

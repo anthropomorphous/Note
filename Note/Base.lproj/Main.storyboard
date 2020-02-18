@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -44,7 +45,7 @@
         <!--Note Edit View Controller-->
         <scene sceneID="q6z-JZ-jE8">
             <objects>
-                <viewController id="Iuy-HQ-ryG" customClass="NoteEditViewController" customModule="Note" sceneMemberID="viewController">
+                <viewController id="Iuy-HQ-ryG" customClass="NoteEditViewController" customModule="Note" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tRt-YC-hQX">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -52,122 +53,125 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p6w-EP-bA8">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                                 <subviews>
-                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="DxO-9d-8Vx">
-                                        <rect key="frame" x="20" y="171" width="374" height="216"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="216" id="hN1-hh-NE7"/>
-                                        </constraints>
-                                    </datePicker>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Use Destroy Date:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lse-WM-3fc">
-                                        <rect key="frame" x="40" y="130.5" width="193" height="20.5"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="20.5" id="jUN-71-ift"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="2C8-3E-sgp">
-                                        <rect key="frame" x="243" y="125" width="51" height="31"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <connections>
-                                            <action selector="dateSwitch:" destination="Iuy-HQ-ryG" eventType="valueChanged" id="Cdn-7F-eBQ"/>
-                                        </connections>
-                                    </switch>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter title for your note" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bGJ-Hg-gNc">
-                                        <rect key="frame" x="20" y="20" width="374" height="40"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="Z8i-n0-1VU"/>
-                                        </constraints>
-                                        <color key="textColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="2sD-vb-vq6">
-                                        <rect key="frame" x="20" y="407" width="374" height="80"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zgz-gS-O8V">
+                                        <rect key="frame" x="0.0" y="20" width="394" height="446"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jfk-Of-Dfb">
-                                                <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                                <gestureRecognizers/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="Jfk-Of-Dfb" secondAttribute="height" multiplier="1:1" id="nLv-1i-y1H"/>
-                                                </constraints>
-                                                <connections>
-                                                    <outletCollection property="gestureRecognizers" destination="Yvr-26-wzJ" appends="YES" id="q69-QR-mvL"/>
-                                                </connections>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ekc-LO-cmJ">
-                                                <rect key="frame" x="98" y="0.0" width="80" height="80"/>
-                                                <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <gestureRecognizers/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="Ekc-LO-cmJ" secondAttribute="height" multiplier="1:1" id="aXy-1D-QFn"/>
-                                                </constraints>
-                                                <connections>
-                                                    <outletCollection property="gestureRecognizers" destination="1Dr-Oi-xzA" appends="YES" id="vk9-9V-tSH"/>
-                                                </connections>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b8k-6G-gdp">
-                                                <rect key="frame" x="196" y="0.0" width="80" height="80"/>
-                                                <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <gestureRecognizers/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="b8k-6G-gdp" secondAttribute="height" multiplier="1:1" id="UFz-yX-Abp"/>
-                                                </constraints>
-                                                <connections>
-                                                    <outletCollection property="gestureRecognizers" destination="jcx-FY-fTA" appends="YES" id="wJQ-gk-ydy"/>
-                                                </connections>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Igm-kA-qjc">
-                                                <rect key="frame" x="294" y="0.0" width="80" height="80"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="Igm-kA-qjc" secondAttribute="height" multiplier="1:1" id="pQn-qQ-mjW"/>
-                                                </constraints>
-                                                <connections>
-                                                    <outletCollection property="gestureRecognizers" destination="eTI-wF-PlT" appends="YES" id="0Qf-LQ-TJR"/>
-                                                    <outletCollection property="gestureRecognizers" destination="064-N8-EPL" appends="YES" id="nVA-rf-J8p"/>
-                                                </connections>
-                                            </view>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="meq-HH-Vev">
+                                                <rect key="frame" x="20" y="0.0" width="374" height="426"/>
+                                                <subviews>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter title for your note" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bGJ-Hg-gNc">
+                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="34"/>
+                                                        <color key="textColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text="Lorem ipsum dolor sit er elit lamet" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ljF-uk-0c0">
+                                                        <rect key="frame" x="0.0" y="42" width="374" height="33"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                        <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    </textView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="hN7-Z3-2kF">
+                                                        <rect key="frame" x="0.0" y="83" width="374" height="31"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Use Destroy Date:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lse-WM-3fc">
+                                                                <rect key="frame" x="0.0" y="5.5" width="187" height="20.5"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="20.5" id="jUN-71-ift"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <switch opaque="NO" contentMode="center" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="2C8-3E-sgp">
+                                                                <rect key="frame" x="187" y="0.0" width="189" height="31"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                <connections>
+                                                                    <action selector="dateSwitch:" destination="Iuy-HQ-ryG" eventType="valueChanged" id="Cdn-7F-eBQ"/>
+                                                                </connections>
+                                                            </switch>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="DxO-9d-8Vx">
+                                                        <rect key="frame" x="0.0" y="122" width="374" height="216"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="216" id="hN1-hh-NE7"/>
+                                                        </constraints>
+                                                    </datePicker>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="2sD-vb-vq6">
+                                                        <rect key="frame" x="0.0" y="346" width="374" height="80"/>
+                                                        <subviews>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jfk-Of-Dfb" customClass="ColorSquare" customModule="Note" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <gestureRecognizers/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" secondItem="Jfk-Of-Dfb" secondAttribute="height" multiplier="1:1" id="nLv-1i-y1H"/>
+                                                                </constraints>
+                                                                <connections>
+                                                                    <outletCollection property="gestureRecognizers" destination="Yvr-26-wzJ" appends="YES" id="q69-QR-mvL"/>
+                                                                </connections>
+                                                            </view>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ekc-LO-cmJ" customClass="ColorSquare" customModule="Note" customModuleProvider="target">
+                                                                <rect key="frame" x="98" y="0.0" width="80" height="80"/>
+                                                                <color key="backgroundColor" red="0.0" green="0.97680455450000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <gestureRecognizers/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" secondItem="Ekc-LO-cmJ" secondAttribute="height" multiplier="1:1" id="aXy-1D-QFn"/>
+                                                                </constraints>
+                                                                <connections>
+                                                                    <outletCollection property="gestureRecognizers" destination="1Dr-Oi-xzA" appends="YES" id="vk9-9V-tSH"/>
+                                                                </connections>
+                                                            </view>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b8k-6G-gdp" customClass="ColorSquare" customModule="Note" customModuleProvider="target">
+                                                                <rect key="frame" x="196" y="0.0" width="80" height="80"/>
+                                                                <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <gestureRecognizers/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" secondItem="b8k-6G-gdp" secondAttribute="height" multiplier="1:1" id="UFz-yX-Abp"/>
+                                                                </constraints>
+                                                                <connections>
+                                                                    <outletCollection property="gestureRecognizers" destination="jcx-FY-fTA" appends="YES" id="wJQ-gk-ydy"/>
+                                                                </connections>
+                                                            </view>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Igm-kA-qjc" customClass="ColorSquare" customModule="Note" customModuleProvider="target">
+                                                                <rect key="frame" x="294" y="0.0" width="80" height="80"/>
+                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" secondItem="Igm-kA-qjc" secondAttribute="height" multiplier="1:1" id="pQn-qQ-mjW"/>
+                                                                </constraints>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isColorPallete" value="YES"/>
+                                                                </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <outletCollection property="gestureRecognizers" destination="064-N8-EPL" appends="YES" id="aZL-zk-gfT"/>
+                                                                    <outletCollection property="gestureRecognizers" destination="eTI-wF-PlT" appends="YES" id="0Qf-LQ-TJR"/>
+                                                                </connections>
+                                                            </view>
+                                                        </subviews>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="80" id="6Qm-dU-LX2"/>
+                                                        </constraints>
+                                                        <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
+                                                    </stackView>
+                                                </subviews>
+                                            </stackView>
                                         </subviews>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="80" id="6Qm-dU-LX2"/>
-                                        </constraints>
-                                        <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
-                                    </stackView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="tbp-g0-PYj">
-                                        <rect key="frame" x="20" y="80" width="374" height="30.5"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="374" id="00y-cz-RIG"/>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="akI-mb-QB4"/>
+                                            <constraint firstAttribute="bottom" secondItem="meq-HH-Vev" secondAttribute="bottom" constant="20" symbolic="YES" id="7KA-S1-j90"/>
+                                            <constraint firstItem="meq-HH-Vev" firstAttribute="leading" secondItem="Zgz-gS-O8V" secondAttribute="leading" constant="20" symbolic="YES" id="U0N-JF-mtT"/>
+                                            <constraint firstItem="meq-HH-Vev" firstAttribute="top" secondItem="Zgz-gS-O8V" secondAttribute="top" id="wz3-R5-fKI"/>
                                         </constraints>
-                                        <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
+                                    </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="2C8-3E-sgp" firstAttribute="leading" secondItem="lse-WM-3fc" secondAttribute="trailing" constant="10" id="3Xi-Tg-RXd"/>
-                                    <constraint firstItem="DxO-9d-8Vx" firstAttribute="top" secondItem="lse-WM-3fc" secondAttribute="bottom" constant="20" id="8MC-uv-5Gd"/>
-                                    <constraint firstAttribute="bottom" secondItem="2sD-vb-vq6" secondAttribute="bottom" constant="20" id="8UN-EK-lxo"/>
-                                    <constraint firstItem="bGJ-Hg-gNc" firstAttribute="top" secondItem="p6w-EP-bA8" secondAttribute="top" constant="20" id="Avn-fd-cea"/>
-                                    <constraint firstItem="tbp-g0-PYj" firstAttribute="trailing" secondItem="bGJ-Hg-gNc" secondAttribute="trailing" id="Cv0-Xy-NhV"/>
-                                    <constraint firstAttribute="trailing" secondItem="bGJ-Hg-gNc" secondAttribute="trailing" constant="20" id="G0u-Fd-mBm"/>
-                                    <constraint firstItem="bGJ-Hg-gNc" firstAttribute="width" secondItem="p6w-EP-bA8" secondAttribute="width" constant="-40" id="GX6-m3-Kwq"/>
-                                    <constraint firstItem="tbp-g0-PYj" firstAttribute="leading" secondItem="bGJ-Hg-gNc" secondAttribute="leading" id="Ih3-ON-MAW"/>
-                                    <constraint firstItem="lse-WM-3fc" firstAttribute="top" secondItem="tbp-g0-PYj" secondAttribute="bottom" constant="20" id="Imj-vz-CZA"/>
-                                    <constraint firstItem="DxO-9d-8Vx" firstAttribute="leading" secondItem="bGJ-Hg-gNc" secondAttribute="leading" id="RWR-Jx-f3a"/>
-                                    <constraint firstItem="2sD-vb-vq6" firstAttribute="leading" secondItem="bGJ-Hg-gNc" secondAttribute="leading" id="ZPF-Ho-cEU"/>
-                                    <constraint firstItem="2C8-3E-sgp" firstAttribute="centerY" secondItem="lse-WM-3fc" secondAttribute="centerY" id="bFH-Wb-t6h"/>
-                                    <constraint firstItem="bGJ-Hg-gNc" firstAttribute="leading" secondItem="p6w-EP-bA8" secondAttribute="leading" constant="20" id="cfO-C0-8yq"/>
-                                    <constraint firstItem="tbp-g0-PYj" firstAttribute="top" secondItem="bGJ-Hg-gNc" secondAttribute="bottom" constant="20" id="e9h-FZ-PPL"/>
-                                    <constraint firstItem="2sD-vb-vq6" firstAttribute="top" secondItem="DxO-9d-8Vx" secondAttribute="bottom" constant="20" id="g6h-tU-q7y"/>
-                                    <constraint firstItem="lse-WM-3fc" firstAttribute="leading" secondItem="tbp-g0-PYj" secondAttribute="leading" constant="20" id="niL-dT-PLK"/>
-                                    <constraint firstItem="DxO-9d-8Vx" firstAttribute="trailing" secondItem="bGJ-Hg-gNc" secondAttribute="trailing" id="oze-eY-rjC"/>
-                                    <constraint firstItem="2sD-vb-vq6" firstAttribute="trailing" secondItem="bGJ-Hg-gNc" secondAttribute="trailing" id="vpM-so-BqJ"/>
-                                    <constraint firstItem="lse-WM-3fc" firstAttribute="centerY" secondItem="2C8-3E-sgp" secondAttribute="centerY" id="yY2-ZZ-OWn"/>
+                                    <constraint firstItem="Zgz-gS-O8V" firstAttribute="leading" secondItem="p6w-EP-bA8" secondAttribute="leading" id="DtD-UD-8zp"/>
+                                    <constraint firstItem="Zgz-gS-O8V" firstAttribute="top" secondItem="p6w-EP-bA8" secondAttribute="top" constant="20" symbolic="YES" id="fBH-mE-Dwn"/>
+                                    <constraint firstAttribute="trailing" secondItem="Zgz-gS-O8V" secondAttribute="trailing" constant="20" id="gYu-KE-zZb"/>
+                                    <constraint firstItem="Zgz-gS-O8V" firstAttribute="centerX" secondItem="p6w-EP-bA8" secondAttribute="centerX" constant="-10" id="n8d-ec-Lj3"/>
+                                    <constraint firstItem="Zgz-gS-O8V" firstAttribute="bottom" secondItem="p6w-EP-bA8" secondAttribute="bottom" constant="-342" id="nFr-rU-2xn"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
@@ -186,13 +190,13 @@
                     </view>
                     <navigationItem key="navigationItem" id="5XF-Rg-WyG"/>
                     <connections>
-                        <outlet property="contentField" destination="tbp-g0-PYj" id="dXX-AI-Hg8"/>
+                        <outlet property="dateLabel" destination="lse-WM-3fc" id="OvP-EV-gcr"/>
                         <outlet property="datePicker" destination="DxO-9d-8Vx" id="aeE-86-Qa8"/>
                         <outlet property="datePickerHeight" destination="hN1-hh-NE7" id="5di-z2-Lk5"/>
+                        <outlet property="dateSwitcher" destination="2C8-3E-sgp" id="bvH-Qs-k4s"/>
                         <outlet property="gradientFieldView" destination="Igm-kA-qjc" id="ZtC-FN-nxf"/>
                         <outlet property="greenFieldView" destination="Ekc-LO-cmJ" id="1VC-dB-Lzb"/>
                         <outlet property="redFieldView" destination="b8k-6G-gdp" id="zcn-uf-hnx"/>
-                        <outlet property="scrollView" destination="p6w-EP-bA8" id="NFh-3H-Xbw"/>
                         <outlet property="titleField" destination="bGJ-Hg-gNc" id="vdH-Nt-raX"/>
                         <outlet property="whiteFieldView" destination="Jfk-Of-Dfb" id="IJ5-iO-Kdo"/>
                         <segue destination="5Wt-pE-TEn" kind="show" identifier="OpenColorPicker" destinationCreationSelector="OpenColorPicker:" id="tw2-Hd-2yY"/>
@@ -201,7 +205,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dFE-Pf-OhZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="064-N8-EPL">
                     <connections>
-                        <action selector="gradientTapGestureRecognizer:" destination="Iuy-HQ-ryG" id="2KY-Yk-cxc"/>
+                        <action selector="gradientTapGestureRecognizer:" destination="Iuy-HQ-ryG" id="fUS-fw-4a6"/>
                     </connections>
                 </tapGestureRecognizer>
                 <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="eTI-wF-PlT">
@@ -243,6 +247,9 @@
                         <viewLayoutGuide key="safeArea" id="pYB-Gv-etw"/>
                     </view>
                     <navigationItem key="navigationItem" id="bBU-st-YPm"/>
+                    <connections>
+                        <outlet property="colorPickerMainView" destination="clP-QA-b9n" id="lhk-9u-MC4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="62b-98-gNX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
