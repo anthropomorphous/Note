@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Iuy-HQ-ryG">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
@@ -8,50 +8,16 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
-            <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Note" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qhW-1Z-WL5">
-                                <rect key="frame" x="94" y="175" width="227" height="65"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <state key="normal" title="Note Edit">
-                                    <color key="titleColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <segue destination="Iuy-HQ-ryG" kind="show" identifier="NoteEditorSegue" id="l6u-y1-tkH"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstItem="8xr-Ny-NcZ" firstAttribute="trailing" secondItem="qhW-1Z-WL5" secondAttribute="trailing" constant="93" id="4gE-jr-2vb"/>
-                            <constraint firstItem="8xr-Ny-NcZ" firstAttribute="bottom" secondItem="qhW-1Z-WL5" secondAttribute="bottom" constant="622" id="A5r-7F-Ujj"/>
-                            <constraint firstItem="qhW-1Z-WL5" firstAttribute="leading" secondItem="8xr-Ny-NcZ" secondAttribute="leading" constant="94" id="IIY-u2-EOy"/>
-                            <constraint firstItem="qhW-1Z-WL5" firstAttribute="top" secondItem="8xr-Ny-NcZ" secondAttribute="top" constant="131" id="uA5-VQ-Ghl"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="8xr-Ny-NcZ"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-819" y="-573"/>
-        </scene>
         <!--Note Edit View Controller-->
         <scene sceneID="q6z-JZ-jE8">
             <objects>
                 <viewController id="Iuy-HQ-ryG" customClass="NoteEditViewController" customModule="Note" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tRt-YC-hQX">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p6w-EP-bA8">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zgz-gS-O8V">
                                         <rect key="frame" x="0.0" y="20" width="414" height="446"/>
@@ -65,7 +31,7 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
-                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text="Lorem ipsum dolor sit er elit lamet" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ljF-uk-0c0">
+                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ljF-uk-0c0">
                                                         <rect key="frame" x="0.0" y="42" width="374" height="33"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                         <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -162,6 +128,7 @@
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="meq-HH-Vev" secondAttribute="bottom" constant="20" symbolic="YES" id="7KA-S1-j90"/>
                                             <constraint firstItem="meq-HH-Vev" firstAttribute="leading" secondItem="Zgz-gS-O8V" secondAttribute="leading" constant="20" symbolic="YES" id="U0N-JF-mtT"/>
+                                            <constraint firstAttribute="trailing" secondItem="meq-HH-Vev" secondAttribute="trailing" constant="20" id="aWE-C5-6Ht"/>
                                             <constraint firstItem="meq-HH-Vev" firstAttribute="top" secondItem="Zgz-gS-O8V" secondAttribute="top" id="wz3-R5-fKI"/>
                                         </constraints>
                                     </view>
@@ -171,7 +138,7 @@
                                     <constraint firstItem="Zgz-gS-O8V" firstAttribute="top" secondItem="p6w-EP-bA8" secondAttribute="top" constant="20" symbolic="YES" id="fBH-mE-Dwn"/>
                                     <constraint firstAttribute="trailing" secondItem="Zgz-gS-O8V" secondAttribute="trailing" id="gYu-KE-zZb"/>
                                     <constraint firstItem="Zgz-gS-O8V" firstAttribute="centerX" secondItem="p6w-EP-bA8" secondAttribute="centerX" id="n8d-ec-Lj3"/>
-                                    <constraint firstItem="Zgz-gS-O8V" firstAttribute="bottom" secondItem="p6w-EP-bA8" secondAttribute="bottom" constant="-342" id="nFr-rU-2xn"/>
+                                    <constraint firstItem="Zgz-gS-O8V" firstAttribute="bottom" secondItem="p6w-EP-bA8" secondAttribute="bottom" constant="20" symbolic="YES" id="nFr-rU-2xn"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
@@ -197,9 +164,9 @@
                         <outlet property="gradientFieldView" destination="Igm-kA-qjc" id="ZtC-FN-nxf"/>
                         <outlet property="greenFieldView" destination="Ekc-LO-cmJ" id="1VC-dB-Lzb"/>
                         <outlet property="redFieldView" destination="b8k-6G-gdp" id="zcn-uf-hnx"/>
+                        <outlet property="scrollView" destination="p6w-EP-bA8" id="Jto-PF-8Nd"/>
                         <outlet property="titleField" destination="bGJ-Hg-gNc" id="vdH-Nt-raX"/>
                         <outlet property="whiteFieldView" destination="Jfk-Of-Dfb" id="IJ5-iO-Kdo"/>
-                        <segue destination="5Wt-pE-TEn" kind="show" identifier="OpenColorPicker" destinationCreationSelector="OpenColorPicker:" id="tw2-Hd-2yY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dFE-Pf-OhZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -210,7 +177,7 @@
                 </tapGestureRecognizer>
                 <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="eTI-wF-PlT">
                     <connections>
-                        <action selector="gradientFieldLongPressed:" destination="Iuy-HQ-ryG" id="Typ-yM-4Vg"/>
+                        <action selector="gradientFieldLongPressed:" destination="Iuy-HQ-ryG" id="RZx-Qf-jLH"/>
                     </connections>
                 </pongPressGestureRecognizer>
                 <tapGestureRecognizer id="Yvr-26-wzJ">
@@ -235,25 +202,6 @@
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="128.98550724637681" y="-573.21428571428567"/>
-        </scene>
-        <!--Color Picker View Controller-->
-        <scene sceneID="s0d-40-gNU">
-            <objects>
-                <viewController id="5Wt-pE-TEn" customClass="ColorPickerViewController" customModule="Note" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="clP-QA-b9n" customClass="ColorPickerMainView" customModule="Note" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="pYB-Gv-etw"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="bBU-st-YPm"/>
-                    <connections>
-                        <outlet property="colorPickerMainView" destination="clP-QA-b9n" id="lhk-9u-MC4"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="62b-98-gNX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1091.304347826087" y="-573.21428571428567"/>
         </scene>
     </scenes>
 </document>

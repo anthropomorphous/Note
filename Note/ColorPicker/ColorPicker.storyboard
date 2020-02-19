@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6d0-rM-rxr">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Color Picker View Controller-->
+        <scene sceneID="Kam-LE-7ep">
+            <objects>
+                <viewController storyboardIdentifier="ColorPicker" useStoryboardIdentifierAsRestorationIdentifier="YES" id="6d0-rM-rxr" customClass="ColorPickerViewController" customModule="Note" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dKa-BH-ELN">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IwT-QV-2YM" customClass="ColorPickerView" customModule="Note" customModuleProvider="target">
+                                <rect key="frame" x="24" y="214" width="327" height="351"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YQY-4S-2sT" customClass="PointerView" customModule="Note" customModuleProvider="target">
+                                        <rect key="frame" x="8" y="8" width="40" height="40"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="XrJ-qT-tjx" appends="YES" id="xQd-sS-OuQ"/>
+                                    <outletCollection property="gestureRecognizers" destination="dWQ-y5-fal" appends="YES" id="ckj-El-bTp"/>
+                                </connections>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dY7-bo-83Q">
+                                <rect key="frame" x="24" y="29" width="86" height="172"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2jA-y1-fwE">
+                                        <rect key="frame" x="0.0" y="0.0" width="86" height="137"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#ffffffff" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nyB-wb-CFk">
+                                        <rect key="frame" x="0.0" y="143" width="86" height="29"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="29" id="EQ1-N9-oHj"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="2jA-y1-fwE" firstAttribute="centerX" secondItem="dY7-bo-83Q" secondAttribute="centerX" id="BKA-mH-a8W"/>
+                                    <constraint firstAttribute="bottom" secondItem="nyB-wb-CFk" secondAttribute="bottom" id="BbJ-kb-w0c"/>
+                                    <constraint firstItem="2jA-y1-fwE" firstAttribute="top" secondItem="dY7-bo-83Q" secondAttribute="top" id="OFw-aZ-Qgc"/>
+                                    <constraint firstItem="2jA-y1-fwE" firstAttribute="leading" secondItem="dY7-bo-83Q" secondAttribute="leading" id="T3C-iA-aZ1"/>
+                                    <constraint firstItem="2jA-y1-fwE" firstAttribute="trailing" secondItem="nyB-wb-CFk" secondAttribute="trailing" id="eky-Lg-JjU"/>
+                                    <constraint firstItem="2jA-y1-fwE" firstAttribute="leading" secondItem="nyB-wb-CFk" secondAttribute="leading" id="gXg-ps-qk3"/>
+                                    <constraint firstItem="nyB-wb-CFk" firstAttribute="top" secondItem="2jA-y1-fwE" secondAttribute="bottom" constant="6" id="td2-em-wXO"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x4Z-iq-4xG">
+                                <rect key="frame" x="158.5" y="573" width="58" height="42"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="Done"/>
+                                <connections>
+                                    <action selector="doneButtonTapped:" destination="6d0-rM-rxr" eventType="touchUpInside" id="mRs-NJ-DWd"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="IwT-QV-2YM" firstAttribute="centerX" secondItem="dKa-BH-ELN" secondAttribute="centerX" id="9le-sy-JPH"/>
+                            <constraint firstItem="IwT-QV-2YM" firstAttribute="top" secondItem="dY7-bo-83Q" secondAttribute="bottom" constant="13" id="APM-uh-Pcq"/>
+                            <constraint firstItem="IwT-QV-2YM" firstAttribute="centerX" secondItem="x4Z-iq-4xG" secondAttribute="centerX" id="AZY-yZ-fi3"/>
+                            <constraint firstItem="Y3a-or-plO" firstAttribute="trailing" secondItem="dY7-bo-83Q" secondAttribute="trailing" constant="265" id="DeJ-a9-Fd9"/>
+                            <constraint firstItem="IwT-QV-2YM" firstAttribute="top" secondItem="dKa-BH-ELN" secondAttribute="top" constant="214" id="GgU-Bs-0rw"/>
+                            <constraint firstItem="dY7-bo-83Q" firstAttribute="leading" secondItem="Y3a-or-plO" secondAttribute="leading" constant="24" id="IHK-iO-5c3"/>
+                            <constraint firstItem="Y3a-or-plO" firstAttribute="bottom" secondItem="x4Z-iq-4xG" secondAttribute="bottom" constant="52" id="PDz-6K-Ooc"/>
+                            <constraint firstItem="dY7-bo-83Q" firstAttribute="top" secondItem="Y3a-or-plO" secondAttribute="top" constant="29" id="b4N-Rz-ccF"/>
+                            <constraint firstItem="x4Z-iq-4xG" firstAttribute="top" secondItem="IwT-QV-2YM" secondAttribute="bottom" constant="8" id="lbZ-ea-Pbt"/>
+                            <constraint firstItem="dY7-bo-83Q" firstAttribute="leading" secondItem="IwT-QV-2YM" secondAttribute="leading" id="ytx-Pb-dOc"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Y3a-or-plO"/>
+                    </view>
+                    <connections>
+                        <outlet property="colorCode" destination="nyB-wb-CFk" id="tcQ-4Y-ZzD"/>
+                        <outlet property="container" destination="dY7-bo-83Q" id="p55-oE-5nI"/>
+                        <outlet property="gradientView" destination="IwT-QV-2YM" id="oGW-Ee-8ro"/>
+                        <outlet property="pointer" destination="YQY-4S-2sT" id="FkJ-4f-pmM"/>
+                        <outlet property="preview" destination="2jA-y1-fwE" id="3JD-RU-ERq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ob9-DU-2lp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="XrJ-qT-tjx">
+                    <connections>
+                        <action selector="handleTapGesture:" destination="6d0-rM-rxr" id="BX8-yy-jUv"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="dWQ-y5-fal">
+                    <connections>
+                        <action selector="handlePanGesture:" destination="6d0-rM-rxr" id="hm8-pi-lFg"/>
+                    </connections>
+                </panGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="146" y="95"/>
+        </scene>
+    </scenes>
+</document>

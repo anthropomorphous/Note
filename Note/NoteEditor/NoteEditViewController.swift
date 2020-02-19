@@ -1,8 +1,7 @@
 import UIKit
 
-protocol Colorable: AnyObject {
-    func passValue(of color: UIColor)
-  //  func passValue(of coordinates: CGPoint, and brightness: Float)
+protocol NoteColorEdit: AnyObject {
+    func toColor(of color: UIColor)
 }
 
 class NoteEditViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate {
@@ -38,41 +37,46 @@ class NoteEditViewController: UIViewController, UITextFieldDelegate, UITextViewD
     }
     
     @IBAction func colorRectWhiteTapped(_ sender: UITapGestureRecognizer) {
-        setColor(whiteFieldView)
+        setFlag(whiteFieldView)
     }
     @IBAction func colorRectRedTapped(_ sender: UITapGestureRecognizer) {
-        setColor(redFieldView)
+        setFlag(redFieldView)
     }
     @IBAction func colorRectGreenTapped(_ sender: UITapGestureRecognizer) {
-        setColor(greenFieldView)
+        setFlag(greenFieldView)
     }
     
     @IBAction func gradientTapGestureRecognizer( _ sender: Any) {
-//      if !gradientFieldView.isColorPallete {
-//             guard let color = gradientFieldView.backgroundColor else { return }
-//             setColor(gradientFieldView)
-//         }
+      if !gradientFieldView.isColorPallete {
+             setFlag(gradientFieldView)
+         }
      }
     
-    
     @IBAction func gradientFieldLongPressed(_ sender: UILongPressGestureRecognizer) {
-        if sender.state == .began {
-            performSegue(withIdentifier: "OpenColorPicker", sender: nil)
+        if sender.state == UIGestureRecognizer.State.began {
+            let storyboard = UIStoryboard(name: "ColorPicker", bundle: nil)
+
+            guard let viewController = storyboard.instantiateInitialViewController()
+                as? ColorPickerViewController else { return }
+            viewController.modalPresentationStyle = .overCurrentContext
+            viewController.delegate = self
+            setFlag(gradientFieldView)
+            if !gradientFieldView!.isColorPallete {
+                viewController.isPainted = true
+            }
+            present(viewController, animated: true)
         }
     }
     
-    private func setColor(_ view: ColorSquare?) {
-        guard let view = view else {
-            return
-        }
-        
+    private func setFlag(_ view: ColorSquare?) {
         selectedField.isSelected = false
         selectedField.setNeedsDisplay()
         
-        view.isSelected = true
-        view.setNeedsDisplay()
-        
-        selectedField = view
+        if let selectedView = view {
+            selectedView.isSelected = true
+            selectedView.setNeedsDisplay()
+            selectedField = selectedView
+        }
     }
     
     private func setup(_ field: UIView) {
@@ -84,33 +88,38 @@ class NoteEditViewController: UIViewController, UITextFieldDelegate, UITextViewD
         super.viewDidLoad()
         selectedField = whiteFieldView
         
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self, selector: #selector(NoteEditViewController.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        notificationCenter.addObserver(self, selector: #selector(NoteEditViewController.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(NoteEditViewController.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(NoteEditViewController.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
-        
-    }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        titleField.endEditing(true)
-        return false
     }
 
     @objc func keyboardWillShow(_ notification:Notification) {
-        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-            scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardSize.height, right: 0)
+        guard let keyboardSize = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
+        let keyboardScreenEndFrame = keyboardSize.cgRectValue
+        let keyboardViewEndFrame = self.view.convert(keyboardScreenEndFrame, from: self.view.window)
+
+        if notification.name == UIResponder.keyboardWillHideNotification {
+            scrollView.contentInset = .zero
+        } else {
+            scrollView.contentInset = UIEdgeInsets(
+                top: 0,
+                left: 0,
+                bottom: keyboardViewEndFrame.height,
+                right: 0
+            )
         }
+        scrollView.scrollIndicatorInsets = scrollView.contentInset
     }
-    
+
     @objc func keyboardWillHide(_ notification:Notification) {
         scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     }
-
 }
 
-
-extension NoteEditViewController: Colorable {
+extension NoteEditViewController: NoteColorEdit {
     
-    func passValue(of color: UIColor) {
+    func toColor(of color: UIColor) {
         if selectedField != gradientFieldView {
             selectedField.isSelected = false
             selectedField.setNeedsDisplay()
@@ -119,9 +128,4 @@ extension NoteEditViewController: Colorable {
         selectedField.isColorPallete = false
         selectedField.backgroundColor = color
     }
-    
-//    func passValue(of coordinates: CGPoint, and brightness: Float) {
-//        cursorPosition = coordinates
-//        brightnessValue = brightness
-//    }
 }
