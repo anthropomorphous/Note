@@ -6,7 +6,7 @@ final class ColorPickerView: UIView {
     enum Constants {
         static let elementSize: CGFloat = 1.0
         static let saturationExponentTop:Float = 1.5
-        static let saturationExponentBottom:Float = 0.7
+        static let saturationExponentBottom:Float = 0.75
     }
     
     override func draw(_ rect: CGRect) {
@@ -19,15 +19,21 @@ final class ColorPickerView: UIView {
                                    saturationExponentTop: Float = Constants.saturationExponentTop,
                                    saturationExponentBottom: Float = Constants.saturationExponentBottom) {
         let context = UIGraphicsGetCurrentContext()
+        
         for y : CGFloat in stride(from: 0.0 ,to: rect.height, by: elementSize) {
             var saturation = y < rect.height / 2.0 ? CGFloat(2 * y) / rect.height : 2.0 * CGFloat(rect.height - y) / rect.height
             saturation = CGFloat(powf(Float(saturation), y < rect.height / 2.0 ? saturationExponentTop : saturationExponentBottom))
-            let brightness = y < rect.height / 2.0 ? CGFloat(1.0) : 2.0 * CGFloat(rect.height - y) / rect.height
+            let brightness = y <= rect.height / 2.0 ? CGFloat(1.0) : 2.0 * CGFloat(rect.height - y) / rect.height
             for x : CGFloat in stride(from: 0.0 ,to: rect.width, by: elementSize) {
                 let hue = x / rect.width
-                let color = UIColor(hue: hue, saturation: saturation, brightness: brightness, alpha: 1.0)
+                let color = UIColor(hue: hue,
+                                    saturation: saturation,
+                                    brightness: brightness,
+                                    alpha: 1.0)
                 context!.setFillColor(color.cgColor)
-                context!.fill(CGRect(x: x, y: y, width: elementSize, height: elementSize))
+                context!.fill(CGRect(x: x, y: y,
+                                     width: elementSize,
+                                     height: elementSize))
             }
         }
     }
@@ -38,9 +44,12 @@ final class ColorPickerView: UIView {
         var saturation = roundedPoint.y < self.bounds.height / 2.0 ? CGFloat(2 * roundedPoint.y) / self.bounds.height
             : 2.0 * CGFloat(self.bounds.height - roundedPoint.y) / self.bounds.height
         saturation = CGFloat(powf(Float(saturation), roundedPoint.y < self.bounds.height / 2.0 ? Constants.saturationExponentTop : Constants.saturationExponentBottom))
-        let brightness = roundedPoint.y < self.bounds.height / 2.0 ? CGFloat(1.0) : 2.0 * CGFloat(self.bounds.height - roundedPoint.y) / self.bounds.height
+        let brightness = roundedPoint.y <= self.bounds.height / 2.0 ? CGFloat(1.0) : 2.0 * CGFloat(self.bounds.height - roundedPoint.y) / self.bounds.height
         let hue = roundedPoint.x / self.bounds.width
-        return UIColor(hue: hue, saturation: saturation, brightness: brightness, alpha: 1.0)
+        return UIColor(hue: hue,
+                       saturation: saturation,
+                       brightness: brightness,
+                       alpha: 1.0)
     }
     
     func getPointForColor(color: UIColor) -> CGPoint {

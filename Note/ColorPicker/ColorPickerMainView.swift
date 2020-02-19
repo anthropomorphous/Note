@@ -60,7 +60,7 @@ final class ColorPickerMainView: UIView {
         return nib.instantiate(withOwner: self, options: nil).first! as! UIView
     }
 
-    private func update(_ location: CGPoint) {
+    func update(_ location: CGPoint) {
         let x = min(max(0, location.x), gradientView.frame.width)
         let y = min(max(0, location.y), gradientView.frame.height)
         let rightLocation = CGPoint(x: x, y: y)
@@ -72,7 +72,9 @@ final class ColorPickerMainView: UIView {
         colorCode.text = currentColor.htmlRGBaColor
         
         delegate?.passValue(of: currentColor)
+        
     }
+    
     
     @IBAction func handlePanGesture(_ sender: UIPanGestureRecognizer) {
         let location = sender.location(in: gradientView)

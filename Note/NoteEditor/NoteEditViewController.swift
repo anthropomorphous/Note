@@ -1,6 +1,11 @@
 import UIKit
 
-final class NoteEditViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate {
+protocol Colorable: AnyObject {
+    func passValue(of color: UIColor)
+  //  func passValue(of coordinates: CGPoint, and brightness: Float)
+}
+
+class NoteEditViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate {
    
     @IBOutlet weak var titleField: UITextField!
     
@@ -15,7 +20,7 @@ final class NoteEditViewController: UIViewController, UITextFieldDelegate, UITex
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var datePickerHeight: NSLayoutConstraint!
     
-    private var selectedField: ColorSquare!
+    var selectedField: ColorSquare!
     
     @IBAction func viewTapped(_ sender: UITapGestureRecognizer) {
         self.view.endEditing(true)
@@ -79,9 +84,6 @@ final class NoteEditViewController: UIViewController, UITextFieldDelegate, UITex
         super.viewDidLoad()
         selectedField = whiteFieldView
         
-        gradientFieldView.backgroundColor = UIColor(
-            patternImage: UIImage(named: "Gradient.jpg")!
-        )
         
         NotificationCenter.default.addObserver(self, selector: #selector(NoteEditViewController.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(NoteEditViewController.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
@@ -105,6 +107,7 @@ final class NoteEditViewController: UIViewController, UITextFieldDelegate, UITex
 
 }
 
+
 extension NoteEditViewController: Colorable {
     
     func passValue(of color: UIColor) {
@@ -116,4 +119,9 @@ extension NoteEditViewController: Colorable {
         selectedField.isColorPallete = false
         selectedField.backgroundColor = color
     }
+    
+//    func passValue(of coordinates: CGPoint, and brightness: Float) {
+//        cursorPosition = coordinates
+//        brightnessValue = brightness
+//    }
 }

@@ -24,7 +24,6 @@
 		F5B51F1C23D84458002C0C8F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5B51F1A23D84458002C0C8F /* LaunchScreen.storyboard */; };
 		F5B51F2423D84631002C0C8F /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B51F2323D84631002C0C8F /* Note.swift */; };
 		F5B51F2623DB8E6C002C0C8F /* NoteExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B51F2523DB8E6C002C0C8F /* NoteExtension.swift */; };
-		F5DAA74A23FBFCA50045913E /* Colorable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DAA74923FBFCA50045913E /* Colorable.swift */; };
 		F5F6F5C923F74BA700974AC7 /* ColorPickerMainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5F6F5C823F74BA700974AC7 /* ColorPickerMainView.xib */; };
 		F5F6F5CB23F8573A00974AC7 /* ColorSquare.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F6F5CA23F8573A00974AC7 /* ColorSquare.swift */; };
 /* End PBXBuildFile section */
@@ -66,7 +65,6 @@
 		F5B51F1D23D84458002C0C8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F5B51F2323D84631002C0C8F /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		F5B51F2523DB8E6C002C0C8F /* NoteExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteExtension.swift; sourceTree = "<group>"; };
-		F5DAA74923FBFCA50045913E /* Colorable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colorable.swift; sourceTree = "<group>"; };
 		F5F6F5C823F74BA700974AC7 /* ColorPickerMainView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ColorPickerMainView.xib; sourceTree = "<group>"; };
 		F5F6F5CA23F8573A00974AC7 /* ColorSquare.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSquare.swift; sourceTree = "<group>"; };
 		FAB9B385754120066FDA8079 /* Pods-Note.qa.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Note.qa.xcconfig"; path = "Target Support Files/Pods-Note/Pods-Note.qa.xcconfig"; sourceTree = "<group>"; };
@@ -167,7 +165,6 @@
 		F5B51F0E23D84455002C0C8F /* Note */ = {
 			isa = PBXGroup;
 			children = (
-				F5DAA74823FBFC690045913E /* Delegate */,
 				F55DAB2223F369BE0069DF37 /* NoteEditor */,
 				F55DAB2123F369B10069DF37 /* ColorPicker */,
 				F5D9C16723E0D136003B31E6 /* Model */,
@@ -190,14 +187,6 @@
 				F5B51F2323D84631002C0C8F /* Note.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		F5DAA74823FBFC690045913E /* Delegate */ = {
-			isa = PBXGroup;
-			children = (
-				F5DAA74923FBFCA50045913E /* Colorable.swift */,
-			);
-			path = Delegate;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -360,7 +349,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F536D1D423DDB743002E90E5 /* FileNotebook.swift in Sources */,
-				F5DAA74A23FBFCA50045913E /* Colorable.swift in Sources */,
 				F55DAB3823F5A1870069DF37 /* ColorPickerViewController.swift in Sources */,
 				F5B51F2623DB8E6C002C0C8F /* NoteExtension.swift in Sources */,
 				F5B51F1423D84456002C0C8F /* ViewController.swift in Sources */,

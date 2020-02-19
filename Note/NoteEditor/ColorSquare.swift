@@ -12,6 +12,9 @@ class ColorSquare: UIView {
         if isSelected {
             setFlag(rect)
         }
+        if isColorPallete {
+            ColorPickerView.drawPallete(rect)
+        }
     }
     
     private func setFlag(_ rect: CGRect) {
