@@ -24,6 +24,7 @@
 		F5B51F2423D84631002C0C8F /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B51F2323D84631002C0C8F /* Note.swift */; };
 		F5B51F2623DB8E6C002C0C8F /* NoteExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B51F2523DB8E6C002C0C8F /* NoteExtension.swift */; };
 		F5DAA74C23FD77D10045913E /* ColorPicker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5DAA74B23FD77D10045913E /* ColorPicker.storyboard */; };
+		F5DAA74E23FE8A170045913E /* NoteEditDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DAA74D23FE8A170045913E /* NoteEditDelegate.swift */; };
 		F5F6F5CB23F8573A00974AC7 /* ColorSquare.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F6F5CA23F8573A00974AC7 /* ColorSquare.swift */; };
 /* End PBXBuildFile section */
 
@@ -64,6 +65,7 @@
 		F5B51F2323D84631002C0C8F /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		F5B51F2523DB8E6C002C0C8F /* NoteExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteExtension.swift; sourceTree = "<group>"; };
 		F5DAA74B23FD77D10045913E /* ColorPicker.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ColorPicker.storyboard; sourceTree = "<group>"; };
+		F5DAA74D23FE8A170045913E /* NoteEditDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteEditDelegate.swift; sourceTree = "<group>"; };
 		F5F6F5CA23F8573A00974AC7 /* ColorSquare.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSquare.swift; sourceTree = "<group>"; };
 		FAB9B385754120066FDA8079 /* Pods-Note.qa.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Note.qa.xcconfig"; path = "Target Support Files/Pods-Note/Pods-Note.qa.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -126,6 +128,7 @@
 				F55DAB2923F36AF90069DF37 /* PointerView.swift */,
 				F55DAB3723F5A1870069DF37 /* ColorPickerViewController.swift */,
 				F5DAA74B23FD77D10045913E /* ColorPicker.storyboard */,
+				F5DAA74D23FE8A170045913E /* NoteEditDelegate.swift */,
 			);
 			path = ColorPicker;
 			sourceTree = "<group>";
@@ -353,6 +356,7 @@
 				F5B51F1023D84456002C0C8F /* AppDelegate.swift in Sources */,
 				F55DAB2423F36A1C0069DF37 /* NoteEditViewController.swift in Sources */,
 				F5B51F1223D84456002C0C8F /* SceneDelegate.swift in Sources */,
+				F5DAA74E23FE8A170045913E /* NoteEditDelegate.swift in Sources */,
 				F55DAB2623F36AB40069DF37 /* ColorPickerView.swift in Sources */,
 				F55DAB2A23F36AF90069DF37 /* PointerView.swift in Sources */,
 				F5B51F2423D84631002C0C8F /* Note.swift in Sources */,

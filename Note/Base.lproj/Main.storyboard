@@ -157,7 +157,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="5XF-Rg-WyG"/>
                     <connections>
-                        <outlet property="dateLabel" destination="lse-WM-3fc" id="OvP-EV-gcr"/>
                         <outlet property="datePicker" destination="DxO-9d-8Vx" id="aeE-86-Qa8"/>
                         <outlet property="datePickerHeight" destination="hN1-hh-NE7" id="5di-z2-Lk5"/>
                         <outlet property="dateSwitcher" destination="2C8-3E-sgp" id="bvH-Qs-k4s"/>

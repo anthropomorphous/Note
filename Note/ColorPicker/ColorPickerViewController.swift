@@ -12,8 +12,6 @@ class ColorPickerViewController: UIViewController {
     @IBOutlet weak var pointer: PointerView!
     
     weak var delegate: NoteColorEdit?
-    var isPainted: Bool = false
-    
        
     override func viewDidLoad() {
         super.viewDidLoad()
