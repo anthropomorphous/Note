@@ -23,6 +23,9 @@
 		F5B51F1C23D84458002C0C8F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5B51F1A23D84458002C0C8F /* LaunchScreen.storyboard */; };
 		F5B51F2423D84631002C0C8F /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B51F2323D84631002C0C8F /* Note.swift */; };
 		F5B51F2623DB8E6C002C0C8F /* NoteExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B51F2523DB8E6C002C0C8F /* NoteExtension.swift */; };
+		F5BBAD1C240D2DD000CBD320 /* NotesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5BBAD1B240D2DD000CBD320 /* NotesTableViewController.swift */; };
+		F5BBAD21240D2E4000CBD320 /* NotesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5BBAD1F240D2E4000CBD320 /* NotesTableViewCell.swift */; };
+		F5BBAD4E2411078900CBD320 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5BBAD4D2411078900CBD320 /* GalleryViewController.swift */; };
 		F5DAA74C23FD77D10045913E /* ColorPicker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5DAA74B23FD77D10045913E /* ColorPicker.storyboard */; };
 		F5DAA74E23FE8A170045913E /* NoteEditDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DAA74D23FE8A170045913E /* NoteEditDelegate.swift */; };
 		F5F6F5CB23F8573A00974AC7 /* ColorSquare.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F6F5CA23F8573A00974AC7 /* ColorSquare.swift */; };
@@ -64,6 +67,9 @@
 		F5B51F1D23D84458002C0C8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F5B51F2323D84631002C0C8F /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		F5B51F2523DB8E6C002C0C8F /* NoteExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteExtension.swift; sourceTree = "<group>"; };
+		F5BBAD1B240D2DD000CBD320 /* NotesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesTableViewController.swift; sourceTree = "<group>"; };
+		F5BBAD1F240D2E4000CBD320 /* NotesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesTableViewCell.swift; sourceTree = "<group>"; };
+		F5BBAD4D2411078900CBD320 /* GalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
 		F5DAA74B23FD77D10045913E /* ColorPicker.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ColorPicker.storyboard; sourceTree = "<group>"; };
 		F5DAA74D23FE8A170045913E /* NoteEditDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteEditDelegate.swift; sourceTree = "<group>"; };
 		F5F6F5CA23F8573A00974AC7 /* ColorSquare.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSquare.swift; sourceTree = "<group>"; };
@@ -165,6 +171,7 @@
 		F5B51F0E23D84455002C0C8F /* Note */ = {
 			isa = PBXGroup;
 			children = (
+				F5BBAD1A240D2D7D00CBD320 /* NotesList */,
 				F55DAB2223F369BE0069DF37 /* NoteEditor */,
 				F55DAB2123F369B10069DF37 /* ColorPicker */,
 				F5D9C16723E0D136003B31E6 /* Model */,
@@ -177,6 +184,16 @@
 				F5B51F1D23D84458002C0C8F /* Info.plist */,
 			);
 			path = Note;
+			sourceTree = "<group>";
+		};
+		F5BBAD1A240D2D7D00CBD320 /* NotesList */ = {
+			isa = PBXGroup;
+			children = (
+				F5BBAD1B240D2DD000CBD320 /* NotesTableViewController.swift */,
+				F5BBAD1F240D2E4000CBD320 /* NotesTableViewCell.swift */,
+				F5BBAD4D2411078900CBD320 /* GalleryViewController.swift */,
+			);
+			path = NotesList;
 			sourceTree = "<group>";
 		};
 		F5D9C16723E0D136003B31E6 /* Model */ = {
@@ -353,13 +370,16 @@
 				F5B51F2623DB8E6C002C0C8F /* NoteExtension.swift in Sources */,
 				F5B51F1423D84456002C0C8F /* ViewController.swift in Sources */,
 				F5F6F5CB23F8573A00974AC7 /* ColorSquare.swift in Sources */,
+				F5BBAD21240D2E4000CBD320 /* NotesTableViewCell.swift in Sources */,
 				F5B51F1023D84456002C0C8F /* AppDelegate.swift in Sources */,
 				F55DAB2423F36A1C0069DF37 /* NoteEditViewController.swift in Sources */,
 				F5B51F1223D84456002C0C8F /* SceneDelegate.swift in Sources */,
 				F5DAA74E23FE8A170045913E /* NoteEditDelegate.swift in Sources */,
 				F55DAB2623F36AB40069DF37 /* ColorPickerView.swift in Sources */,
 				F55DAB2A23F36AF90069DF37 /* PointerView.swift in Sources */,
+				F5BBAD4E2411078900CBD320 /* GalleryViewController.swift in Sources */,
 				F5B51F2423D84631002C0C8F /* Note.swift in Sources */,
+				F5BBAD1C240D2DD000CBD320 /* NotesTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

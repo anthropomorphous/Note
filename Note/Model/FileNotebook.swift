@@ -14,14 +14,14 @@ class FileNotebook {
     
     private(set) var notes = [String: Note]()
     
-    public func add(_ note: Note) throws {
+    public func add(_ note: Note) {
         guard notes[note.uid] != nil else {
             notes[note.uid] = note
             DDLogInfo("Note with id \(note.uid) is added.")
             return
         }
         DDLogError("Note with id \(note.uid) could not be added, note with this uuid already exists")
-        throw FileNotebookError.existingUid
+      //  throw FileNotebookError.existingUid
     }
     
     public func remove(with uid: String) {

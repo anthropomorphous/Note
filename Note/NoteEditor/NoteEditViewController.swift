@@ -1,6 +1,6 @@
 import UIKit
 
-class NoteEditViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate {
+class NoteEditViewController: UIViewController {
    
     @IBOutlet weak var titleField: UITextField!
     
@@ -34,7 +34,7 @@ class NoteEditViewController: UIViewController, UITextFieldDelegate, UITextViewD
         setFlag(to: greenFieldView)
     }
     
-    @IBAction func gradientTapGestureRecognizer( _ sender: Any) {
+    @IBAction func gradientTapGestureRecognizer(_ sender: Any) {
       if !gradientFieldView.isColorPallete {
         setFlag(to: gradientFieldView)
         }
