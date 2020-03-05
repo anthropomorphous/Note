@@ -14,18 +14,28 @@ class FileNotebook {
     
     private(set) var notes = [String: Note]()
     
+    private(set) var notesArray = [Note]()
+       
+    func updateArr() {
+        notesArray = notes.map({$0.value})
+    }
+    
     public func add(_ note: Note) {
-        guard notes[note.uid] != nil else {
-            notes[note.uid] = note
-            DDLogInfo("Note with id \(note.uid) is added.")
-            return
-        }
-        DDLogError("Note with id \(note.uid) could not be added, note with this uuid already exists")
+//        guard notes[note.uid] != nil else {
+//            notes[note.uid] = note
+//            updateArr()
+//            DDLogInfo("Note with id \(note.uid) is added.")
+//            return
+//        }
+//        DDLogError("Note with id \(note.uid) could not be added, note with this uuid already exists")
+        notes[note.uid] = note
+        updateArr()
       //  throw FileNotebookError.existingUid
     }
     
     public func remove(with uid: String) {
         notes.removeValue(forKey: uid)
+        updateArr()
         DDLogInfo("Note with \(uid) was removed.")
     }
     
@@ -56,13 +66,14 @@ class FileNotebook {
                 if let jsonNotes = try JSONSerialization.jsonObject(with: data, options: []) as? [[String: Any]] {
                     for note in jsonNotes {
                         if let note = Note.parse(json: note){
-                            try self.add(note)
+                            self.add(note)
                         }
                     }
                 } else {
                     assertionFailure("There was an issue parsing the JSON")
                 }
             }
+            updateArr()
         } catch {
             DDLogError("Error: \(error.localizedDescription).")
         }

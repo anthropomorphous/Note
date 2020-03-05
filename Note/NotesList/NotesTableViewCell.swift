@@ -14,19 +14,25 @@ class NotesTableViewCell: UITableViewCell {
     @IBOutlet weak var content: UILabel!
     @IBOutlet weak var colorSquare: UIView!
     
-    var titleText: String?
-    var contentText: String?
-    var color: UIColor?
-    
-//    override func awakeFromNib() {
-//        super.awakeFromNib()
-//        title.text = titleText
-//        content.text = contentText
-//        colorSquare.backgroundColor = color
-//    }
+    var color = UIColor.white {
+        didSet {
+            colorSquare.backgroundColor = color
+        }
+    }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+        if selected {
+            colorSquare.backgroundColor = color
+        }
+    }
+    
+    override func setHighlighted(_ highlighted: Bool, animated: Bool) {
+        super.setHighlighted(highlighted, animated: animated)
+        
+        if highlighted {
+            colorSquare.backgroundColor = color
+        }
     }
     
 }

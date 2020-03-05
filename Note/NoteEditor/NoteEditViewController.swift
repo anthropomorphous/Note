@@ -1,9 +1,10 @@
 import UIKit
+import CocoaLumberjack
 
-class NoteEditViewController: UIViewController {
+class NoteEditViewController: UIViewController, UITextFieldDelegate {
    
     @IBOutlet weak var titleField: UITextField!
-    
+    @IBOutlet weak var contentField: UITextView!
     @IBOutlet weak var whiteFieldView: ColorSquare!
     @IBOutlet weak var redFieldView: ColorSquare!
     @IBOutlet weak var greenFieldView: ColorSquare!
@@ -15,9 +16,12 @@ class NoteEditViewController: UIViewController {
     @IBOutlet weak var datePickerHeight: NSLayoutConstraint!
     
     var selectedField: ColorSquare!
+    var receivedNote: Note?
+    var currentColor: UIColor?
+    var fileNotebook: FileNotebook?
     
     @IBAction func viewTapped(_ sender: UITapGestureRecognizer) {
-        self.view.endEditing(true)
+        view.endEditing(true)
     }
     
     @IBAction func dateSwitch(_ sender: UISwitch) {
@@ -52,12 +56,29 @@ class NoteEditViewController: UIViewController {
         present(viewController, animated: true)
     }
     
+    @IBAction func saveTapped(_ sender: Any) {
+        let destructionDate = dateSwitcher.isOn ? datePicker.date : nil
+        guard let note = receivedNote else { return }
+        
+        let newNote = Note(uid: note.uid, title: titleField.text!, content: contentField.text, color: currentColor!, selfDestructDate: destructionDate, importance: note.importance)
+            print(note.uid)
+        fileNotebook?.add(newNote)
+        
+        navigationController?.popViewController(animated: true)
+    }
+    
     private func setFlag(to view: ColorSquare?) {
         setViewSelected(selectedField, false)
         if let selectedView = view {
             setViewSelected(selectedView, true)
             selectedField = selectedView
+            currentColor = selectedView.backgroundColor!
         }
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        titleField.endEditing(true)
+        return false
     }
     
     private func setup(_ field: UIView) {
@@ -67,7 +88,10 @@ class NoteEditViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        titleField.delegate = self
         selectedField = whiteFieldView
+        setFlag(to: whiteFieldView)
+        currentColor = receivedNote?.color
         
         let notificationCenter = NotificationCenter.default
         notificationCenter.addObserver(self, selector: #selector(NoteEditViewController.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
@@ -107,6 +131,7 @@ extension NoteEditViewController: NoteColorEdit {
         selectedField = gradientFieldView
         selectedField.isColorPallete = false
         selectedField.backgroundColor = color
+        currentColor = color
     }
     
     func setViewSelected(_ view: ColorSquare, _ temp: Bool)
