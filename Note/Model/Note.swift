@@ -1,7 +1,7 @@
 import UIKit
 
 struct Note {
-    
+    let index: Int
     let uid : String
     let title : String
     let content : String
@@ -15,12 +15,14 @@ struct Note {
         case unimportant
     }
     
-    init(uid: String = UUID().uuidString,
+    init(index: Int,
+         uid: String = UUID().uuidString,
          title: String,
          content: String,
          color: UIColor = UIColor.white,
          selfDestructDate : Date?,
          importance : Importance) {
+        self.index = index
         self.uid = uid
         self.title = title
         self.content = content

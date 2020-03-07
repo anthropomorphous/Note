@@ -60,7 +60,7 @@ class NoteEditViewController: UIViewController, UITextFieldDelegate {
         let destructionDate = dateSwitcher.isOn ? datePicker.date : nil
         guard let note = receivedNote else { return }
         
-        let newNote = Note(uid: note.uid, title: titleField.text!, content: contentField.text, color: currentColor!, selfDestructDate: destructionDate, importance: note.importance)
+        let newNote = Note(index: note.index, uid: note.uid, title: titleField.text!, content: contentField.text, color: currentColor!, selfDestructDate: destructionDate, importance: note.importance)
         fileNotebook?.add(newNote)
         
         navigationController?.popViewController(animated: true)
@@ -88,9 +88,32 @@ class NoteEditViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         titleField.delegate = self
-        selectedField = whiteFieldView
-        setFlag(to: whiteFieldView)
-        currentColor = receivedNote?.color
+        
+        if receivedNote == nil {
+            selectedField = whiteFieldView
+            setFlag(to: whiteFieldView)
+        } else {
+            currentColor = receivedNote?.color
+            titleField.text = receivedNote?.title
+            contentField.text = receivedNote?.content
+            
+            switch receivedNote?.color {
+            case UIColor.white:
+                selectedField = whiteFieldView
+                setFlag(to: whiteFieldView)
+            case UIColor.green:
+                selectedField = greenFieldView
+                setFlag(to: greenFieldView)
+            case UIColor.red:
+                selectedField = redFieldView
+                setFlag(to: redFieldView)
+            default:
+                gradientFieldView.isColorPallete = false
+                gradientFieldView.backgroundColor = receivedNote?.color
+                selectedField = gradientFieldView
+                setFlag(to: gradientFieldView)
+            }
+        }
         
         let notificationCenter = NotificationCenter.default
         notificationCenter.addObserver(self, selector: #selector(NoteEditViewController.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)

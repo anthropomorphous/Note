@@ -1,11 +1,3 @@
-//
-//  NotesTableViewCell.swift
-//  Note
-//
-//  Created by ios_school on 3/2/20.
-//  Copyright © 2020 ios_school. All rights reserved.
-//
-
 import UIKit
 
 class NotesTableViewCell: UITableViewCell {

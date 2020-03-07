@@ -11,6 +11,7 @@ extension Note {
     
     var json: [String: Any] {
         var result = [String: Any]()
+        result["index"] = index
         result[uidKey] = uid
         result[titleKey] = title
         result[contentKey] = content
@@ -32,6 +33,9 @@ extension Note {
     }
     
     static func parse(json: [String: Any]) -> Note? {
+        guard let index = json["index"] as? Int else {
+            return nil
+        }
         guard let uid = json[uidKey] as? String else {
             return nil
         }
@@ -64,7 +68,8 @@ extension Note {
         }
         
         
-        let note = Note(uid: uid,
+        let note = Note(index: index,
+                        uid: uid,
                         title: title,
                         content: content,
                         color: color,

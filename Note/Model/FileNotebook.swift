@@ -17,7 +17,7 @@ class FileNotebook {
     private(set) var notesArray = [Note]()
        
     func updateArr() {
-        notesArray = notes.map({$0.value})
+        notesArray = notes.map({$0.value}).sorted(by: {$0.index > $1.index})
     }
     
     public func add(_ note: Note) {
