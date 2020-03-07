@@ -61,7 +61,6 @@ class NoteEditViewController: UIViewController, UITextFieldDelegate {
         guard let note = receivedNote else { return }
         
         let newNote = Note(uid: note.uid, title: titleField.text!, content: contentField.text, color: currentColor!, selfDestructDate: destructionDate, importance: note.importance)
-            print(note.uid)
         fileNotebook?.add(newNote)
         
         navigationController?.popViewController(animated: true)

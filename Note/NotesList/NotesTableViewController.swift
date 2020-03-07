@@ -35,7 +35,9 @@ class NotesTableViewController: UIViewController {
     }
     
     @IBAction func deleteButtonTapped(_ sender: UIBarButtonItem) {
+        tableView.beginUpdates()
         tableView.isEditing = tableView.isEditing ? false : true
+        tableView.endUpdates()
     }
     
     func noteTapped(at index: Int) {
@@ -84,7 +86,6 @@ extension NotesTableViewController: UITableViewDelegate, UITableViewDataSource {
             self.fileNotebook.remove(with: self.fileNotebook.notesArray[indexPath.row].uid)
             tableView.deleteRows(at: [indexPath], with: .automatic)
         }
-        tableView.reloadData()
     }
     
 }
