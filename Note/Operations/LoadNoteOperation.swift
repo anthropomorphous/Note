@@ -1,7 +1,8 @@
 import Foundation
 
 class LoadNoteOperation: AsyncOperation {
-    private let loadFromDb: LoadNoteDBOperation
+    private let loadFromBackend: LoadNotesBackendOperation
+    private let loadFromDb: LoadNotesDBOperation
     private let dbQueue: OperationQueue
     
     private(set) var result: Bool? = false
@@ -11,27 +12,42 @@ class LoadNoteOperation: AsyncOperation {
          backendQueue: OperationQueue,
          dbQueue: OperationQueue) {
 
-        loadFromDb = LoadNoteDBOperation(note: note, notebook: notebook)
+        loadFromBackend = LoadNotesBackendOperation()
+        loadFromDb = LoadNotesDBOperation(note: note, notebook: notebook)
         self.dbQueue = dbQueue
 
         super.init()
 
-        loadFromDb.completionBlock = {
-            let loadFromBackend = LoadNotesBackendOperation(notes: notebook.notesArray)
-            loadFromBackend.completionBlock = {
-                switch loadFromBackend.result! {
-                case .success:
-                    self.result = true
+        loadFromBackend.completionBlock = {
+            if let result = self.loadFromBackend.result {
+                switch result {
+                case .success(let notes):
+                    let updateNotes = BlockOperation {
+                        notebook.update(notes)
+                    }
+                    self.addDependency(updateNotes)
+                    dbQueue.addOperation(updateNotes)
+                    self.removeDependency(self.loadFromDb)
                 case .failure:
-                    self.result = false
+                    dbQueue.addOperation(self.loadFromDb)
                 }
-                self.finish()
             }
-            backendQueue.addOperation(loadFromBackend)
+            self.finish()
         }
+        addDependency(loadFromBackend)
+        addDependency(loadFromDb)
+        dbQueue.addOperation(loadFromDb)
     }
 
     override func main() {
-        dbQueue.addOperation(loadFromDb)
+        if let result = loadFromBackend.result {
+            switch result {
+            case .success:
+                self.result = true
+            case .failure:
+                self.result = false
+            }
+        }
+        self.finish()
     }
 }

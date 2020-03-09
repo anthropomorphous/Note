@@ -33,8 +33,7 @@
 		F5BBAD5B24127F6B00CBD320 /* SaveNoteDBOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5BBAD5A24127F6B00CBD320 /* SaveNoteDBOperation.swift */; };
 		F5BBAD5D24127F8500CBD320 /* BaseDBOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5BBAD5C24127F8500CBD320 /* BaseDBOperation.swift */; };
 		F5BBAD5F24127FAF00CBD320 /* RemoveNoteDBOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5BBAD5E24127FAF00CBD320 /* RemoveNoteDBOperation.swift */; };
-		F5BBAD6124127FCA00CBD320 /* LoadNoteDBOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5BBAD6024127FCA00CBD320 /* LoadNoteDBOperation.swift */; };
-		F5BBAD6324127FED00CBD320 /* RemoveNotesBackendOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5BBAD6224127FED00CBD320 /* RemoveNotesBackendOperation.swift */; };
+		F5BBAD6124127FCA00CBD320 /* LoadNotesDBOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5BBAD6024127FCA00CBD320 /* LoadNotesDBOperation.swift */; };
 		F5BBAD652412800B00CBD320 /* LoadNotesBackendOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5BBAD642412800B00CBD320 /* LoadNotesBackendOperation.swift */; };
 		F5BBAD672412802B00CBD320 /* RemoveNoteOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5BBAD662412802B00CBD320 /* RemoveNoteOperation.swift */; };
 		F5BBAD692412804E00CBD320 /* LoadNoteOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5BBAD682412804E00CBD320 /* LoadNoteOperation.swift */; };
@@ -91,8 +90,7 @@
 		F5BBAD5A24127F6B00CBD320 /* SaveNoteDBOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveNoteDBOperation.swift; sourceTree = "<group>"; };
 		F5BBAD5C24127F8500CBD320 /* BaseDBOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseDBOperation.swift; sourceTree = "<group>"; };
 		F5BBAD5E24127FAF00CBD320 /* RemoveNoteDBOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveNoteDBOperation.swift; sourceTree = "<group>"; };
-		F5BBAD6024127FCA00CBD320 /* LoadNoteDBOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadNoteDBOperation.swift; sourceTree = "<group>"; };
-		F5BBAD6224127FED00CBD320 /* RemoveNotesBackendOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveNotesBackendOperation.swift; sourceTree = "<group>"; };
+		F5BBAD6024127FCA00CBD320 /* LoadNotesDBOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadNotesDBOperation.swift; sourceTree = "<group>"; };
 		F5BBAD642412800B00CBD320 /* LoadNotesBackendOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadNotesBackendOperation.swift; sourceTree = "<group>"; };
 		F5BBAD662412802B00CBD320 /* RemoveNoteOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveNoteOperation.swift; sourceTree = "<group>"; };
 		F5BBAD682412804E00CBD320 /* LoadNoteOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadNoteOperation.swift; sourceTree = "<group>"; };
@@ -243,7 +241,6 @@
 			children = (
 				F5BBAD5624127F0E00CBD320 /* SaveNotesBackendOperation.swift */,
 				F5BBAD5824127F2E00CBD320 /* BaseBackendOperation.swift */,
-				F5BBAD6224127FED00CBD320 /* RemoveNotesBackendOperation.swift */,
 				F5BBAD642412800B00CBD320 /* LoadNotesBackendOperation.swift */,
 			);
 			path = BackendOperations;
@@ -255,7 +252,7 @@
 				F5BBAD5A24127F6B00CBD320 /* SaveNoteDBOperation.swift */,
 				F5BBAD5C24127F8500CBD320 /* BaseDBOperation.swift */,
 				F5BBAD5E24127FAF00CBD320 /* RemoveNoteDBOperation.swift */,
-				F5BBAD6024127FCA00CBD320 /* LoadNoteDBOperation.swift */,
+				F5BBAD6024127FCA00CBD320 /* LoadNotesDBOperation.swift */,
 			);
 			path = DBOperations;
 			sourceTree = "<group>";
@@ -440,7 +437,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F5BBAD6D2413EB2B00CBD320 /* ImageCollectionViewController.swift in Sources */,
-				F5BBAD6324127FED00CBD320 /* RemoveNotesBackendOperation.swift in Sources */,
 				F5BBAD672412802B00CBD320 /* RemoveNoteOperation.swift in Sources */,
 				F5BBAD5924127F2E00CBD320 /* BaseBackendOperation.swift in Sources */,
 				F536D1D423DDB743002E90E5 /* FileNotebook.swift in Sources */,
@@ -467,7 +463,7 @@
 				F5B51F2423D84631002C0C8F /* Note.swift in Sources */,
 				F5BBAD5324127E4B00CBD320 /* AsyncOperation.swift in Sources */,
 				F5BBAD1C240D2DD000CBD320 /* NotesTableViewController.swift in Sources */,
-				F5BBAD6124127FCA00CBD320 /* LoadNoteDBOperation.swift in Sources */,
+				F5BBAD6124127FCA00CBD320 /* LoadNotesDBOperation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

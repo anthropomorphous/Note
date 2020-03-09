@@ -39,6 +39,12 @@ class FileNotebook {
         DDLogInfo("Note with \(uid) was removed.")
     }
     
+    public func update(_ notes: [Note]) {
+        self.notes = notes.reduce(into: [String:Note]()) {$0[$1.uid] = $1}
+        saveToFile()
+        updateArr()
+    }
+    
     public func saveToFile() {
         let notesArr = notes.map { $0.value.json }
         guard let usePath = FileNotebook.path else {

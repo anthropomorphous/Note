@@ -1,15 +1,8 @@
-//
-//  RemoveNoteOperation.swift
-//  Note
-//
-//  Created by ios_school on 3/6/20.
-//  Copyright © 2020 ios_school. All rights reserved.
-//
-
 import Foundation
 
 class RemoveNoteOperation: AsyncOperation {
     private let removeFromDb: RemoveNoteDBOperation
+    private let saveToBackend: SaveNotesBackendOperation
     private let dbQueue: OperationQueue
     
     private(set) var result: Bool? = false
@@ -19,27 +12,29 @@ class RemoveNoteOperation: AsyncOperation {
          backendQueue: OperationQueue,
          dbQueue: OperationQueue) {
 
+        saveToBackend = SaveNotesBackendOperation(notes: notebook.notesArray)
         removeFromDb = RemoveNoteDBOperation(note: note, notebook: notebook)
         self.dbQueue = dbQueue
 
         super.init()
 
         removeFromDb.completionBlock = {
-            let removeFromBackend = RemoveNotesBackendOperation(notes: notebook.notesArray)
-            removeFromBackend.completionBlock = {
-                switch removeFromBackend.result! {
-                case .success:
-                    self.result = true
-                case .failure:
-                    self.result = false
-                }
-                self.finish()
-            }
-            backendQueue.addOperation(removeFromBackend)
+            backendQueue.addOperation(self.saveToBackend)
         }
+        self.addDependency(saveToBackend)
+        self.addDependency(removeFromDb)
+        dbQueue.addOperation(removeFromDb)
     }
 
     override func main() {
-        dbQueue.addOperation(removeFromDb)
+        if let result = self.saveToBackend.result {
+            switch result {
+            case .success:
+                self.result = true
+            case .failure:
+                self.result = false
+            }
+        }
+        self.finish()
     }
 }

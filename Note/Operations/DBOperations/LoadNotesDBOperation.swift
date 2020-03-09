@@ -1,7 +1,8 @@
 import Foundation
 
-class LoadNoteDBOperation: BaseDBOperation {
+class LoadNotesDBOperation: BaseDBOperation {
     private let note: Note
+    private(set) var result: [Note]?
     
     init(note: Note,
          notebook: FileNotebook) {
@@ -11,6 +12,7 @@ class LoadNoteDBOperation: BaseDBOperation {
     
     override func main() {
         notebook.loadFromFile()
+        result = notebook.notesArray
         finish()
     }
 }
