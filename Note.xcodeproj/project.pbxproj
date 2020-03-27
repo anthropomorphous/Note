@@ -36,9 +36,11 @@
 		F5BBAD6124127FCA00CBD320 /* LoadNotesDBOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5BBAD6024127FCA00CBD320 /* LoadNotesDBOperation.swift */; };
 		F5BBAD652412800B00CBD320 /* LoadNotesBackendOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5BBAD642412800B00CBD320 /* LoadNotesBackendOperation.swift */; };
 		F5BBAD672412802B00CBD320 /* RemoveNoteOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5BBAD662412802B00CBD320 /* RemoveNoteOperation.swift */; };
-		F5BBAD692412804E00CBD320 /* LoadNoteOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5BBAD682412804E00CBD320 /* LoadNoteOperation.swift */; };
+		F5BBAD692412804E00CBD320 /* LoadNotesOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5BBAD682412804E00CBD320 /* LoadNotesOperation.swift */; };
 		F5BBAD6D2413EB2B00CBD320 /* ImageCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5BBAD6C2413EB2B00CBD320 /* ImageCollectionViewController.swift */; };
 		F5BBAD6F2413EFB900CBD320 /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5BBAD6E2413EFB900CBD320 /* ImageCollectionViewCell.swift */; };
+		F5BBAD932417CAB600CBD320 /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5BBAD922417CAB600CBD320 /* AuthenticationViewController.swift */; };
+		F5BBAD95242621DB00CBD320 /* Gist.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5BBAD94242621DB00CBD320 /* Gist.swift */; };
 		F5DAA74C23FD77D10045913E /* ColorPicker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5DAA74B23FD77D10045913E /* ColorPicker.storyboard */; };
 		F5DAA74E23FE8A170045913E /* NoteEditDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DAA74D23FE8A170045913E /* NoteEditDelegate.swift */; };
 		F5F6F5CB23F8573A00974AC7 /* ColorSquare.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F6F5CA23F8573A00974AC7 /* ColorSquare.swift */; };
@@ -93,9 +95,11 @@
 		F5BBAD6024127FCA00CBD320 /* LoadNotesDBOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadNotesDBOperation.swift; sourceTree = "<group>"; };
 		F5BBAD642412800B00CBD320 /* LoadNotesBackendOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadNotesBackendOperation.swift; sourceTree = "<group>"; };
 		F5BBAD662412802B00CBD320 /* RemoveNoteOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveNoteOperation.swift; sourceTree = "<group>"; };
-		F5BBAD682412804E00CBD320 /* LoadNoteOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadNoteOperation.swift; sourceTree = "<group>"; };
+		F5BBAD682412804E00CBD320 /* LoadNotesOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadNotesOperation.swift; sourceTree = "<group>"; };
 		F5BBAD6C2413EB2B00CBD320 /* ImageCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewController.swift; sourceTree = "<group>"; };
 		F5BBAD6E2413EFB900CBD320 /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		F5BBAD922417CAB600CBD320 /* AuthenticationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewController.swift; sourceTree = "<group>"; };
+		F5BBAD94242621DB00CBD320 /* Gist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gist.swift; sourceTree = "<group>"; };
 		F5DAA74B23FD77D10045913E /* ColorPicker.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ColorPicker.storyboard; sourceTree = "<group>"; };
 		F5DAA74D23FE8A170045913E /* NoteEditDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteEditDelegate.swift; sourceTree = "<group>"; };
 		F5F6F5CA23F8573A00974AC7 /* ColorSquare.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSquare.swift; sourceTree = "<group>"; };
@@ -210,6 +214,7 @@
 				F5B51F1823D84458002C0C8F /* Assets.xcassets */,
 				F5B51F1A23D84458002C0C8F /* LaunchScreen.storyboard */,
 				F5B51F1D23D84458002C0C8F /* Info.plist */,
+				F5BBAD922417CAB600CBD320 /* AuthenticationViewController.swift */,
 			);
 			path = Note;
 			sourceTree = "<group>";
@@ -231,7 +236,7 @@
 				F5BBAD5224127E4A00CBD320 /* AsyncOperation.swift */,
 				F5BBAD5424127E6D00CBD320 /* SaveNoteOperation.swift */,
 				F5BBAD662412802B00CBD320 /* RemoveNoteOperation.swift */,
-				F5BBAD682412804E00CBD320 /* LoadNoteOperation.swift */,
+				F5BBAD682412804E00CBD320 /* LoadNotesOperation.swift */,
 			);
 			path = Operations;
 			sourceTree = "<group>";
@@ -273,6 +278,7 @@
 				F536D1D323DDB743002E90E5 /* FileNotebook.swift */,
 				F5B51F2523DB8E6C002C0C8F /* NoteExtension.swift */,
 				F5B51F2323D84631002C0C8F /* Note.swift */,
+				F5BBAD94242621DB00CBD320 /* Gist.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -446,8 +452,9 @@
 				F5BBAD5B24127F6B00CBD320 /* SaveNoteDBOperation.swift in Sources */,
 				F5BBAD5D24127F8500CBD320 /* BaseDBOperation.swift in Sources */,
 				F5BBAD652412800B00CBD320 /* LoadNotesBackendOperation.swift in Sources */,
+				F5BBAD932417CAB600CBD320 /* AuthenticationViewController.swift in Sources */,
 				F5B51F2623DB8E6C002C0C8F /* NoteExtension.swift in Sources */,
-				F5BBAD692412804E00CBD320 /* LoadNoteOperation.swift in Sources */,
+				F5BBAD692412804E00CBD320 /* LoadNotesOperation.swift in Sources */,
 				F5B51F1423D84456002C0C8F /* ViewController.swift in Sources */,
 				F5F6F5CB23F8573A00974AC7 /* ColorSquare.swift in Sources */,
 				F5BBAD5F24127FAF00CBD320 /* RemoveNoteDBOperation.swift in Sources */,
@@ -455,6 +462,7 @@
 				F5B51F1023D84456002C0C8F /* AppDelegate.swift in Sources */,
 				F55DAB2423F36A1C0069DF37 /* NoteEditViewController.swift in Sources */,
 				F5B51F1223D84456002C0C8F /* SceneDelegate.swift in Sources */,
+				F5BBAD95242621DB00CBD320 /* Gist.swift in Sources */,
 				F5DAA74E23FE8A170045913E /* NoteEditDelegate.swift in Sources */,
 				F55DAB2623F36AB40069DF37 /* ColorPickerView.swift in Sources */,
 				F55DAB2A23F36AF90069DF37 /* PointerView.swift in Sources */,

@@ -1,5 +1,6 @@
 import UIKit.UIColor
 
+let indexKey = "index"
 let uidKey = "uid"
 let titleKey = "title"
 let contentKey = "content"
@@ -11,7 +12,7 @@ extension Note {
     
     var json: [String: Any] {
         var result = [String: Any]()
-        result["index"] = index
+        result[indexKey] = index
         result[uidKey] = uid
         result[titleKey] = title
         result[contentKey] = content
@@ -33,7 +34,7 @@ extension Note {
     }
     
     static func parse(json: [String: Any]) -> Note? {
-        guard let index = json["index"] as? Int else {
+        guard let index = json[indexKey] as? Int else {
             return nil
         }
         guard let uid = json[uidKey] as? String else {

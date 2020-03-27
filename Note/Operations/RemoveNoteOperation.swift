@@ -7,13 +7,13 @@ class RemoveNoteOperation: AsyncOperation {
     
     private(set) var result: Bool? = false
     
-    init(note: Note,
+    init(uid: String,
          notebook: FileNotebook,
          backendQueue: OperationQueue,
          dbQueue: OperationQueue) {
 
         saveToBackend = SaveNotesBackendOperation(notes: notebook.notesArray)
-        removeFromDb = RemoveNoteDBOperation(note: note, notebook: notebook)
+        removeFromDb = RemoveNoteDBOperation(uid: uid, notebook: notebook)
         self.dbQueue = dbQueue
 
         super.init()

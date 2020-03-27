@@ -11,20 +11,4 @@ class NotesTableViewCell: UITableViewCell {
             colorSquare.backgroundColor = color
         }
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        if selected {
-            colorSquare.backgroundColor = color
-        }
-    }
-    
-    override func setHighlighted(_ highlighted: Bool, animated: Bool) {
-        super.setHighlighted(highlighted, animated: animated)
-        
-        if highlighted {
-            colorSquare.backgroundColor = color
-        }
-    }
-    
 }

@@ -18,7 +18,11 @@ class NoteEditViewController: UIViewController, UITextFieldDelegate {
     var selectedField: ColorSquare!
     var receivedNote: Note?
     var currentColor: UIColor?
-    var fileNotebook: FileNotebook?
+    var notebook: FileNotebook?
+    
+    var queue = OperationQueue()
+    var dbQueue = OperationQueue()
+    var backendQueue = OperationQueue()
     
     @IBAction func viewTapped(_ sender: UITapGestureRecognizer) {
         view.endEditing(true)
@@ -61,7 +65,11 @@ class NoteEditViewController: UIViewController, UITextFieldDelegate {
         guard let note = receivedNote else { return }
         
         let newNote = Note(index: note.index, uid: note.uid, title: titleField.text!, content: contentField.text, color: currentColor!, selfDestructDate: destructionDate, importance: note.importance)
-        fileNotebook?.add(newNote)
+     //   print(notebook!.notesArray.count)
+     //   print(newNote.title)
+        let saveNoteOperation = SaveNoteOperation(note: newNote, notebook: notebook ?? FileNotebook(), backendQueue: backendQueue, dbQueue: dbQueue)
+        self.queue.addOperation(saveNoteOperation)
+        self.queue.waitUntilAllOperationsAreFinished()
         
         navigationController?.popViewController(animated: true)
     }
@@ -85,6 +93,11 @@ class NoteEditViewController: UIViewController, UITextFieldDelegate {
         field.layer.borderColor = UIColor.black.cgColor
     }
     
+    private func setColor(to view: ColorSquare) {
+        selectedField = view
+        setFlag(to: view)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         titleField.delegate = self
@@ -99,19 +112,15 @@ class NoteEditViewController: UIViewController, UITextFieldDelegate {
             
             switch receivedNote?.color {
             case UIColor.white:
-                selectedField = whiteFieldView
-                setFlag(to: whiteFieldView)
+                setColor(to: whiteFieldView)
             case UIColor.green:
-                selectedField = greenFieldView
-                setFlag(to: greenFieldView)
+                setColor(to: greenFieldView)
             case UIColor.red:
-                selectedField = redFieldView
-                setFlag(to: redFieldView)
+                setColor(to: redFieldView)
             default:
                 gradientFieldView.isColorPallete = false
                 gradientFieldView.backgroundColor = receivedNote?.color
-                selectedField = gradientFieldView
-                setFlag(to: gradientFieldView)
+                setColor(to: gradientFieldView)
             }
         }
         
